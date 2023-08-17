@@ -3,10 +3,10 @@ import Image from 'next/image';
 import { getContent } from '@/lib/api';
 import { Serialiser } from '@/components/Serialize';
 
-export default async function Home() {
+export default async function Events() {
   const content = await getContent();
   const markdown =
-    content.docs.find((doc: any) => doc.title === 'Homepage')?.body || 'No content found';
+    content.docs.find((doc: any) => doc.title === 'homepage').body || 'No content found';
 
   return (
     <>
@@ -17,6 +17,9 @@ export default async function Home() {
 
         <Box>
           <Serialiser>{markdown}</Serialiser>
+        </Box>
+        <Box>
+          <Image src="AL_logo.svg" alt="Jouluristeily 2022" width={500} height={500} />
         </Box>
       </Stack>
     </>

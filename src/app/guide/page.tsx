@@ -3,10 +3,10 @@ import Image from 'next/image';
 import { getContent } from '@/lib/api';
 import { Serialiser } from '@/components/Serialize';
 
-export default async function Home() {
+export default async function Guide() {
   const content = await getContent();
   const markdown =
-    content.docs.find((doc: any) => doc.title === 'Homepage')?.body || 'No content found';
+    content.docs.find((doc: any) => doc.title === 'guide').body || 'No content found';
 
   return (
     <>
