@@ -7,7 +7,7 @@ import PriceItem from '@/components/PriceItem';
 export default async function PriceList() {
   const content = await getContent();
   const markdown =
-    content.docs.find((doc: any) => doc.title === 'Pricelist').body || 'No content found';
+    content.docs.find((doc: any) => doc.title === 'pricelist').body || 'No content found';
 
   const priceList = await getPriceList();
   const items = priceList.docs;

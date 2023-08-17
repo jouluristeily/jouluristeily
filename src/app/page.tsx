@@ -6,7 +6,7 @@ import { Serialiser } from '@/components/Serialize';
 export default async function Home() {
   const content = await getContent();
   const markdown =
-    content.docs.find((doc: any) => doc.title === 'Homepage')?.body || 'No content found';
+    content.docs.find((doc: any) => doc.title === 'homepage')?.body || 'No content found';
 
   return (
     <>
