@@ -9,7 +9,7 @@ export default async function Afterlecture() {
     content.docs.find((doc: any) => doc.title === 'afterlecture').body || 'No content found';
 
   return (
-    <Stack alignItems="center" padding={10}>
+    <Stack alignItems="center">
       <Box>
         <Image src="logo.svg" alt="Jouluristeily 2022" width={500} height={500} />
       </Box>

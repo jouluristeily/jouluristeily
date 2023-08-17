@@ -81,7 +81,15 @@ export default function DrawerAppBar(props: Props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar
+        component="nav"
+        sx={{
+          color: '#000',
+          bgcolor: '#fff',
+          outline: '5px dashed yellow',
+          boxShadow: '0 0 0 5px red',
+        }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -97,9 +105,9 @@ export default function DrawerAppBar(props: Props) {
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item.label} sx={{ color: '#fff' }}>
-                {item.label}
-              </Button>
+              <Link key={item.label} href={item.href}>
+                <Button sx={{ color: '#000', fontWeight: 700 }}>{item.label}</Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>

@@ -10,9 +10,9 @@ export default async function Home() {
 
   return (
     <>
-      <Stack alignItems="center" padding={10}>
+      <Stack alignItems="center">
         <Box>
-          <Image src="logo.svg" alt="Jouluristeily 2022" width={500} height={500} />
+          <Image src="logo.svg" alt="Jouluristeily 2022" width={500} height={300} />
         </Box>
 
         <Box>

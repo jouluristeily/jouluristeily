@@ -16,7 +16,7 @@ export default async function PriceList() {
   const appro = items.filter((item: any) => item.type === 'appro');
 
   return (
-    <Stack alignItems="center" padding={10} spacing={5}>
+    <Stack alignItems="center" spacing={5}>
       <Box>
         <Image src="logo.svg" alt="Jouluristeily 2022" width={500} height={500} />
       </Box>
