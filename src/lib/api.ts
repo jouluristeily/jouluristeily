@@ -15,3 +15,12 @@ export async function getPriceList() {
   } catch (err) {}
   return null;
 }
+
+export async function getEvents() {
+  try {
+    const response = await fetch(`${process.env.API_URL}/events`);
+    const data = await response.json();
+    return data;
+  } catch (err) {}
+  return null;
+}

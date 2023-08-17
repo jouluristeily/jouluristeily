@@ -1,26 +1,26 @@
 import { Box, Stack } from '@mui/material';
 import Image from 'next/image';
-import { getContent } from '@/lib/api';
+import { getContent, getEvents } from '@/lib/api';
 import { Serialiser } from '@/components/Serialize';
+import EventItem from '@/components/events/EventItem';
 
 export default async function Events() {
-  const content = await getContent();
-  const markdown =
-    content.docs.find((doc: any) => doc.title === 'homepage').body || 'No content found';
+  const eventsResponse = await getEvents();
+  const events = eventsResponse.docs;
 
   return (
     <>
-      <Stack alignItems="center" padding={10}>
-        <Box>
-          <Image src="logo.svg" alt="Jouluristeily 2022" width={500} height={500} />
-        </Box>
-
-        <Box>
-          <Serialiser>{markdown}</Serialiser>
-        </Box>
-        <Box>
-          <Image src="AL_logo.svg" alt="Jouluristeily 2022" width={500} height={500} />
-        </Box>
+      <Stack alignItems="center" sx={{ maxWidth: '100%' }}>
+        {events.map((event: any) => (
+          <EventItem
+            key={event.id}
+            title={event.title}
+            startTime={event.startTime}
+            endTime={event.endTime}
+            description={event.description}
+            location={event.location}
+          />
+        ))}
       </Stack>
     </>
   );
