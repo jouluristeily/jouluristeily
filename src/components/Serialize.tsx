@@ -15,21 +15,55 @@ export const serialize = (children: any[]) =>
 
     switch (node.type) {
       case 'h1':
-      case 'h2':
-      case 'h3':
-      case 'h4':
-      case 'h5':
-      case 'h6':
         return (
           <Typography
             key={i}
-            variant={node.type}
+            variant="h1"
             sx={{
-              textAlign: node.textAlign || 'left', // Default to 'left' if not specified
+              textAlign: node.textAlign || 'left',
               fontWeight: node.bold ? 'bold' : 'regular',
               fontStyle: node.italic ? 'italic' : 'normal',
               textDecoration: node.underline ? 'underline' : 'none',
               textDecorationLine: node.strikethrough ? 'line-through' : 'none',
+              fontSize: '2rem',
+              color: 'red',
+              letterSpacing: '-2%',
+            }}
+          >
+            {serialize(node.children)}
+          </Typography>
+        );
+
+      case 'h2':
+        return (
+          <Typography
+            key={i}
+            variant="h2"
+            sx={{
+              textAlign: node.textAlign || 'left',
+              fontWeight: node.bold ? 'bold' : 'regular',
+              fontStyle: node.italic ? 'italic' : 'normal',
+              textDecoration: node.underline ? 'underline' : 'none',
+              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
+              fontSize: '2rem',
+            }}
+          >
+            {serialize(node.children)}
+          </Typography>
+        );
+
+      case 'h3':
+        return (
+          <Typography
+            key={i}
+            variant="h3"
+            sx={{
+              textAlign: node.textAlign || 'left',
+              fontWeight: node.bold ? 'bold' : 'regular',
+              fontStyle: node.italic ? 'italic' : 'normal',
+              textDecoration: node.underline ? 'underline' : 'none',
+              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
+              fontSize: '1.5rem',
             }}
           >
             {serialize(node.children)}
