@@ -1,14 +1,7 @@
-import DrawerAppBar from '@/components/DrawerAppBar';
-import { Box, Stack } from '@mui/material';
-import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import { Metadata } from 'next';
 import Footer from './Footer';
-
-const MontserratFont = Montserrat({
-  weight: ['400', '500', '600', '700'],
-  style: 'normal',
-  subsets: ['latin'],
-});
+import ResponsiveNav from '@/components/ResponsiveNav';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Jouluristeily 2023',
@@ -18,12 +11,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={MontserratFont.className}>
-        <Stack justifyContent="space-between" minHeight="100vh" minWidth="100vw">
-          <DrawerAppBar />
-          {children}
+      <body className="font-montserrat">
+        <div className="flex flex-col min-h-screen min-w-screen">
+          <ResponsiveNav />
+          <main className="flex-grow">{children}</main>
           <Footer />
-        </Stack>
+        </div>
       </body>
     </html>
   );
