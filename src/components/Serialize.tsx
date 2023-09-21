@@ -38,7 +38,14 @@ export const serialize = (children: any[]) =>
 
       case 'link':
         return node.url ? (
-          <Link key={i} href={node.url} underline="hover" target="_blank" rel="noopener noreferrer">
+          <Link
+            key={i}
+            href={node.url}
+            underline="hover"
+            target="_blank"
+            rel="noopener noreferrer"
+            fontSize="medium"
+          >
             {serialize(node.children)}
           </Link>
         ) : null;

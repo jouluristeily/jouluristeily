@@ -9,7 +9,10 @@ export default async function Home() {
 
   return (
     <>
-      <Stack alignItems="center">{text && <Serialiser>{text}</Serialiser>}</Stack>
+      <Stack alignItems="center">
+        <Image src="logo.svg" alt="Jouluristeily 2022" width={400} height={300} />
+        {text && <Serialiser>{text}</Serialiser>}
+      </Stack>
     </>
   );
 }
