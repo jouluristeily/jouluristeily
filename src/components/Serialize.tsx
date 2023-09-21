@@ -1,70 +1,65 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import escapeHTML from 'escape-html';
 import { Text } from 'slate';
+import { Link, Typography } from '@mui/material';
 
 export const Serialiser = (props: { children: any[] }) => <>{serialize(props.children)}</>;
 
 export const serialize = (children: any[]) =>
-  children.map(
-    (
-      node: {
-        text: string | null | undefined;
-        bold: any;
-        code: any;
-        italic: any;
-        type: any;
-        children: any;
-        url: string | null | undefined;
-      },
-      i: React.Key | null | undefined
-    ) => {
-      if (Text.isText(node)) {
-        let text = <span dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }} />;
+  children.map((node: any, i: React.Key | null | undefined) => {
+    if (!node) return null;
 
-        if (node.bold) {
-          text = <strong key={i}>{text}</strong>;
-        }
-
-        if (node.code) {
-          text = <code key={i}>{text}</code>;
-        }
-
-        if (node.italic) {
-          text = <em key={i}>{text}</em>;
-        }
-
-        // Handle other leaf types here...
-
-        return <Fragment key={i}>{text}</Fragment>;
-      }
-
-      if (!node) {
-        return null;
-      }
-
-      switch (node.type) {
-        case 'h1':
-          return <h1 key={i}>{serialize(node.children)}</h1>;
-        // Iterate through all headings here...
-        case 'h6':
-          return <h6 key={i}>{serialize(node.children)}</h6>;
-        case 'blockquote':
-          return <blockquote key={i}>{serialize(node.children)}</blockquote>;
-        case 'ul':
-          return <ul key={i}>{serialize(node.children)}</ul>;
-        case 'ol':
-          return <ol key={i}>{serialize(node.children)}</ol>;
-        case 'li':
-          return <li key={i}>{serialize(node.children)}</li>;
-        case 'link':
-          return (
-            <a href={escapeHTML(node.url)} key={i}>
-              {serialize(node.children)}
-            </a>
-          );
-
-        default:
-          return <p key={i}>{serialize(node.children)}</p>;
-      }
+    if (Text.isText(node)) {
+      return escapeHTML(node.text); // Serialize text nodes directly
     }
-  );
+
+    switch (node.type) {
+      case 'h1':
+      case 'h2':
+      case 'h3':
+      case 'h4':
+      case 'h5':
+      case 'h6':
+        return (
+          <Typography
+            key={i}
+            variant={node.type}
+            sx={{
+              textAlign: node.textAlign || 'left', // Default to 'left' if not specified
+              fontWeight: node.bold ? 'bold' : 'regular',
+              fontStyle: node.italic ? 'italic' : 'normal',
+              textDecoration: node.underline ? 'underline' : 'none',
+              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
+            }}
+          >
+            {serialize(node.children)}
+          </Typography>
+        );
+
+      case 'link':
+        return node.url ? (
+          <Link key={i} href={node.url} underline="hover" target="_blank" rel="noopener noreferrer">
+            {serialize(node.children)}
+          </Link>
+        ) : null;
+
+      default:
+        return (
+          <Typography
+            key={i}
+            sx={{
+              fontWeight: node.bold ? 'bold' : 'regular',
+              fontStyle: node.italic ? 'italic' : 'normal',
+              textDecoration: node.underline ? 'underline' : 'none',
+              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
+              textAlign: node.textAlign || 'left', // Default to 'left' if not specified
+            }}
+            variant="body1" // Default variant for unhandled types
+          >
+            {serialize(node.children)}
+          </Typography>
+        );
+    }
+  });
+
+export default Serialiser;
