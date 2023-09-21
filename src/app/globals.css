@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your CSS or Tailwind CSS styles */
+@media (max-width: 767px) {
+  /* Hide the desktop sidebar and content on smaller screens */
+  .w-64 {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  /* Hide the mobile sidebar on larger screens */
+  .hidden.md\:block {
+    display: none;
+  }
+}
+
+/* .custom-outline {
+  outline: 5px dashed yellow;
+  box-shadow: 0 0 0 5px red;
+}
+ */
