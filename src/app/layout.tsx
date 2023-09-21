@@ -1,10 +1,14 @@
 import DrawerAppBar from '@/components/DrawerAppBar';
 import { Box, Stack } from '@mui/material';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import Footer from './Footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const MontserratFont = Montserrat({
+  weight: ['400', '500', '600', '700'],
+  style: 'normal',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Jouluristeily 2023',
@@ -14,10 +18,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={MontserratFont.className}>
         <Stack justifyContent="space-between" minHeight="100vh" minWidth="100vw">
           <DrawerAppBar />
-          <Box sx={{ px: { xs: 2, sm: 4, md: 10 }, py: 2, minHeight: '100vh' }}>{children}</Box>
+          {children}
           <Footer />
         </Stack>
       </body>

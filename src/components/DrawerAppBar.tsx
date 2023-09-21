@@ -33,7 +33,7 @@ interface NavigationItem {
 }
 
 const navItems: NavigationItem[] = [
-  { href: '/', label: 'JR 2022' },
+  { href: '/', label: 'JR 2023' },
   /* { href: '/events', label: 'Ohjelma' }, */
   //{ href: '/rissenimi', label: 'Risteilynimi' },
   //{ href: '/notepad', label: 'Hyttimuistio', divider: colors.lightred },
@@ -57,7 +57,7 @@ export default function DrawerAppBar(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Image src="icon.svg" alt="Jouluristeily 2022" width={100} height={100} />
+      <Image src="icon.svg" alt="Jouluristeily 2023" width={100} height={100} />
 
       <Divider />
       <List>

@@ -13,50 +13,36 @@ export const serialize = (children: any[]) =>
       return escapeHTML(node.text); // Serialize text nodes directly
     }
 
+    const getHeadingStyle = (h: 'h1' | 'h2' | 'h3' | 'h4') => {
+      switch (h) {
+        case 'h1':
+          return {
+            fontFamily: 'Montsarrat',
+            fontSize: '2rem',
+            fontWeight: 'bold',
+            letterSpacing: '-2%',
+            color: 'red',
+          };
+        case 'h2':
+          return { fontSize: '1.5rem', fontWeight: 'bold', letterSpacing: '-2%' };
+        case 'h3':
+          return { fontSize: '1.2rem', fontWeight: 'bold', letterSpacing: '-1%' };
+        case 'h4':
+          return { fontSize: '1rem', fontWeight: 'bold' };
+        default:
+          return {};
+      }
+    };
+
     switch (node.type) {
       case 'h1':
-        return (
-          <Typography
-            key={i}
-            variant="h1"
-            sx={{
-              textAlign: node.textAlign || 'left',
-              fontWeight: node.bold ? 'bold' : 'regular',
-              fontStyle: node.italic ? 'italic' : 'normal',
-              textDecoration: node.underline ? 'underline' : 'none',
-              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
-              fontSize: '2rem',
-              color: 'red',
-              letterSpacing: '-2%',
-            }}
-          >
-            {serialize(node.children)}
-          </Typography>
-        );
-
       case 'h2':
-        return (
-          <Typography
-            key={i}
-            variant="h2"
-            sx={{
-              textAlign: node.textAlign || 'left',
-              fontWeight: node.bold ? 'bold' : 'regular',
-              fontStyle: node.italic ? 'italic' : 'normal',
-              textDecoration: node.underline ? 'underline' : 'none',
-              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
-              fontSize: '2rem',
-            }}
-          >
-            {serialize(node.children)}
-          </Typography>
-        );
-
       case 'h3':
+      case 'h4':
         return (
           <Typography
             key={i}
-            variant="h3"
+            variant={node.type}
             sx={{
               textAlign: node.textAlign || 'left',
               fontWeight: node.bold ? 'bold' : 'regular',
@@ -64,6 +50,7 @@ export const serialize = (children: any[]) =>
               textDecoration: node.underline ? 'underline' : 'none',
               textDecorationLine: node.strikethrough ? 'line-through' : 'none',
               fontSize: '1.5rem',
+              ...getHeadingStyle(node.type),
             }}
           >
             {serialize(node.children)}

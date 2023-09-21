@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { getContent } from '@/lib/api';
 import { Serialiser } from '@/components/Serialize';
@@ -9,10 +9,29 @@ export default async function Home() {
 
   return (
     <>
-      <Stack alignItems="center">
-        <Image src="logo.svg" alt="Jouluristeily 2022" width={400} height={300} />
-        {text && <Serialiser>{text}</Serialiser>}
-      </Stack>
+      <Grid container direction="column" alignItems="center">
+        <Grid
+          container
+          item
+          direction="column"
+          sx={{ backgroundImage: `url(bileet.jpg)` }}
+          alignItems="center"
+          minWidth="100vw"
+          minHeight="600px"
+        >
+          <Grid item sx={{ pt: 5 }}>
+            <Image src="logo.svg" alt="Jouluristeily 2022" width={600} height={400} />
+          </Grid>
+          <Grid item>
+            <Typography variant="h3" color="white" sx={{ mt: -8 }}>
+              1.-2.12.2023
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item sx={{ px: { xs: 2, sm: 4, md: 10 }, py: 2 }}>
+          {text && <Serialiser>{text}</Serialiser>}
+        </Grid>
+      </Grid>
     </>
   );
 }
