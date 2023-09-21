@@ -6,7 +6,7 @@ import PriceItem from '@/components/PriceItem';
 
 export default async function PriceList() {
   const content = await getContent();
-  const markdown =
+  const text =
     content.docs.find((doc: any) => doc.title === 'pricelist').body || 'No content found';
 
   const priceList = await getPriceList();
@@ -17,13 +17,7 @@ export default async function PriceList() {
 
   return (
     <Stack alignItems="center" spacing={5}>
-      <Box>
-        <Image src="logo.svg" alt="Jouluristeily 2022" width={500} height={500} />
-      </Box>
-
-      <Box>
-        <Serialiser>{markdown}</Serialiser>
-      </Box>
+      <Box>{text && <Serialiser>{text}</Serialiser>}</Box>
 
       <Box>
         <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold', pb: 3 }}>

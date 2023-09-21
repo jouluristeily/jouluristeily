@@ -7,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -33,11 +34,11 @@ interface NavigationItem {
 
 const navItems: NavigationItem[] = [
   { href: '/', label: 'JR 2022' },
-  { href: '/events', label: 'Ohjelma' },
+  /* { href: '/events', label: 'Ohjelma' }, */
   //{ href: '/rissenimi', label: 'Risteilynimi' },
   //{ href: '/notepad', label: 'Hyttimuistio', divider: colors.lightred },
   { href: '/tuplis', label: 'Tuplis' },
-  { href: '/prices', label: 'Hinnasto' },
+  /* { href: '/prices', label: 'Hinnasto' }, */
   { href: '/guide', label: 'Ohjeet' },
   /*   { href: "/ehdot", label: "Matkaehdot" }, */
   { href: '/loimu', label: 'Loimu' },
@@ -56,11 +57,8 @@ export default function DrawerAppBar(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Image src="public/icon.svg" alt="Jouluristeily 2022" width={200} height={200} />
+      <Image src="icon.svg" alt="Jouluristeily 2022" width={100} height={100} />
 
-      <Typography variant="h6" sx={{ my: 2 }}>
-        After Lecture
-      </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -98,15 +96,15 @@ export default function DrawerAppBar(props: Props) {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            Menu button
+            <MenuIcon fontSize="large" />
           </IconButton>
-          <Box sx={{ flexGrow: 1 }}>
+          <Box>
             <Image src="icon.svg" alt="Jouluristeily 2022" width={100} height={100} />
           </Box>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ display: { xs: 'none', sm: 'block' }, flexGrow: 1 }}>
             {navItems.map((item) => (
               <Link key={item.label} href={item.href}>
-                <Button sx={{ color: '#000', fontWeight: 700 }}>{item.label}</Button>
+                <Button sx={{ color: '#000', fontWeight: 800 }}>{item.label}</Button>
               </Link>
             ))}
           </Box>
@@ -129,10 +127,7 @@ export default function DrawerAppBar(props: Props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-        <Typography></Typography>
-      </Box>
+      <Box component="main" sx={{ py: 6 }}></Box>
     </Box>
   );
 }

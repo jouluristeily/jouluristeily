@@ -5,20 +5,11 @@ import { Serialiser } from '@/components/Serialize';
 
 export default async function Home() {
   const content = await getContent();
-  const markdown =
-    content.docs.find((doc: any) => doc.title === 'homepage')?.body || 'No content found';
+  const text = content.docs.find((doc: any) => doc.title === 'homepage')?.body;
 
   return (
     <>
-      <Stack alignItems="center">
-        <Box>
-          <Image src="logo.svg" alt="Jouluristeily 2022" width={500} height={300} />
-        </Box>
-
-        <Box>
-          <Serialiser>{markdown}</Serialiser>
-        </Box>
-      </Stack>
+      <Stack alignItems="center">{text && <Serialiser>{text}</Serialiser>}</Stack>
     </>
   );
 }
