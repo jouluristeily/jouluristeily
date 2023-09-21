@@ -1,11 +1,9 @@
-import { Box, Stack } from '@mui/material';
-import Image from 'next/image';
-import { getContent, getEvents } from '@/lib/api';
-import { Serialiser } from '@/components/Serialize';
+import { Stack, Typography } from '@mui/material';
+import { getEvents } from '@/lib/api';
 import EventItem from '@/components/events/EventItem';
 
 export default async function Events() {
-  const eventsResponse = await getEvents();
+  /* const eventsResponse = await getEvents();
   const events = eventsResponse.docs;
 
   return (
@@ -23,5 +21,11 @@ export default async function Events() {
         ))}
       </Stack>
     </>
+  ); */
+
+  return (
+    <Typography variant="h1" sx={{ textAlign: 'center' }}>
+      Julkaistaan myöhemmin
+    </Typography>
   );
 }
