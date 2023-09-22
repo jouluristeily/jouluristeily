@@ -1,8 +1,6 @@
-import { Grid, Paper, Typography } from '@mui/material';
-import { alignProperty } from '@mui/material/styles/cssUtils';
-import { UTCtoTime } from '@/lib/utils';
+import React from 'react';
 
-interface EventItemProps {
+export interface EventItemProps {
   title: string;
   startTime: string;
   endTime: string;
@@ -10,43 +8,35 @@ interface EventItemProps {
   location: string;
 }
 
-export default function EventItem({
-  title,
-  startTime,
-  endTime,
-  description,
-  location,
-}: EventItemProps) {
+function EventItem({ title, startTime, endTime, description, location }: EventItemProps) {
+  const start = new Date(startTime);
+  const end = new Date(endTime);
+  const startHour = start.getHours();
+  const startMinutes = start.getMinutes().toString().padStart(2, '0');
+  const endMinutes = end.getMinutes().toString().padStart(2, '0');
+  const timeString = `${startHour}:${startMinutes} - ${end.getHours()}:${endMinutes}`;
+  const dayAbbreviation = start.toLocaleDateString('fi', { weekday: 'short' });
+
   return (
-    <Paper sx={{ minWidth: '100%' }}>
-      <Grid
-        container
-        justifyItems="center"
-        sx={{ maxWidth: { xs: '100%', md: '60%', lg: '30%' }, minHeight: 100, p: 1 }}
-      >
-        <Grid item container direction="column" xs={9}>
-          <Grid item>
-            <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold' }}>
-              {title}
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h6" component="h2" sx={{ fontWeight: 'bold' }}>
-              {`${UTCtoTime(startTime)} - ${UTCtoTime(endTime)}`}
-            </Typography>
-          </Grid>
-        </Grid>
-        <Grid item xs={3} sx={{ textAlign: 'end' }}>
-          <Typography variant="body1" component="p">
-            {location}
-          </Typography>
-        </Grid>
-      </Grid>
-      <Grid item xs={12} sx={{ p: 1 }}>
-        <Typography variant="body1" component="p">
+    <div className=" border border-gray-300 p-4 rounded shadow mb-4 flex max-w-md">
+      <div className="flex flex-col items-center justify-center w-16 h-16 text-white mr-4 pt-9">
+        <span className="text-6xl text-red-500 font-semibold">{startHour}</span>
+        <span className="text-4xl text-black font-semibold">{dayAbbreviation}</span>
+      </div>
+      <div>
+        <h2 className="text-lg font-semibold">
+          {title} @ {location}
+        </h2>
+        <p className="font-medium">{timeString}</p>
+
+        <div className="mt-2 border-t border-gray-300 pt-2">
           {description}
-        </Typography>
-      </Grid>
-    </Paper>
+
+          <p className="font-medium">{location}</p>
+        </div>
+      </div>
+    </div>
   );
 }
+
+export default EventItem;

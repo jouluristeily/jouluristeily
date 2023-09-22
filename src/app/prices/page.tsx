@@ -1,30 +1,36 @@
-import { Box, Stack, Typography } from '@mui/material';
-import Image from 'next/image';
+import React from 'react';
 import { getContent, getPriceList } from '@/lib/api';
 import { Serialiser } from '@/components/Serialize';
 import PriceItem from '@/components/PriceItem';
 
+interface PriceListItem {
+  title: string;
+  price: string;
+  description: string;
+  type: string;
+}
+
 export default async function PriceList() {
   const content = await getContent();
-  const text =
-    content.docs.find((doc: any) => doc.title === 'pricelist').body || 'No content found';
+  const contentText =
+    content.docs.find((doc: { title: string }) => doc.title === 'pricelist').body ||
+    'No content found';
 
   const priceList = await getPriceList();
-  const items = priceList.docs;
-  const jrHytit = items.filter((item: any) => item.type === 'jr_hytti');
-  const tpHytit = items.filter((item: any) => item.type === 'tp_hytti');
-  const appro = items.filter((item: any) => item.type === 'appro');
+  const items: PriceListItem[] = priceList.docs;
+
+  const jrHytit = items.filter((item) => item.type === 'jr_hytti');
+  const tpHytit = items.filter((item) => item.type === 'tp_hytti');
+  const appro = items.filter((item) => item.type === 'appro');
 
   return (
-    <Stack alignItems="center" spacing={5}>
-      <Box>{text && <Serialiser>{text}</Serialiser>}</Box>
+    <div className="flex flex-col items-center space-y-5">
+      <div>{contentText && <Serialiser>{contentText}</Serialiser>}</div>
 
-      <Box>
-        <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold', pb: 3 }}>
-          Jouluristeilyn hyttihinnasto 2022
-        </Typography>
-        <Stack spacing={2}>
-          {jrHytit.map((item: any) => (
+      <div className="text-center">
+        <h2 className="text-2xl font-bold pb-3">Jouluristeilyn hyttihinnasto 2022</h2>
+        <div className="space-y-2">
+          {jrHytit.map((item) => (
             <PriceItem
               key={item.title}
               title={item.title}
@@ -32,15 +38,13 @@ export default async function PriceList() {
               description={item.description}
             />
           ))}
-        </Stack>
-      </Box>
+        </div>
+      </div>
 
-      <Box>
-        <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold' }}>
-          Ankkuri-Appro /henkilö
-        </Typography>
-        <Stack>
-          {appro.map((item: any) => (
+      <div className="text-center">
+        <h2 className="text-2xl font-bold">Ankkuri-Appro /henkilö</h2>
+        <div className="space-y-2">
+          {appro.map((item) => (
             <PriceItem
               key={item.title}
               title={item.title}
@@ -48,15 +52,13 @@ export default async function PriceList() {
               description={item.description}
             />
           ))}
-        </Stack>
-      </Box>
+        </div>
+      </div>
 
-      <Box>
-        <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold' }}>
-          TUPLIS hyttihinnasto
-        </Typography>
-        <Stack>
-          {tpHytit.map((item: any) => (
+      <div className="text-center">
+        <h2 className="text-2xl font-bold">TUPLIS hyttihinnasto</h2>
+        <div className="space-y-2">
+          {tpHytit.map((item) => (
             <PriceItem
               key={item.title}
               title={item.title}
@@ -64,8 +66,8 @@ export default async function PriceList() {
               description={item.description}
             />
           ))}
-        </Stack>
-      </Box>
-    </Stack>
+        </div>
+      </div>
+    </div>
   );
 }
