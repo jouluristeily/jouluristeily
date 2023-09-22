@@ -15,7 +15,7 @@ export default async function Home() {
         >
           <div className="flex flex-col items-center justify-center h-full p-4">
             <Image src="logo.svg" alt="Jouluristeily 2022" width={600} height={400} />
-            <h3 className="text-3xl text-white mt-[-2rem]">1.-2.12.2023</h3>
+            <h3 className="text-3xl text-white mt-[-2rem]">30.11.-1.12.2023</h3>
           </div>
         </div>
         <div className="p-4 md:p-10 text-center">{text && <Serialiser>{text}</Serialiser>}</div>
