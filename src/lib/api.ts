@@ -1,6 +1,6 @@
 export async function getContent() {
   try {
-    const response = await fetch(`http://127.0.0.1:3000/api/content`);
+    const response = await fetch(`${process.env.API_URL}/content`);
     const data = await response.json();
     return data;
   } catch (err) {}
@@ -9,7 +9,7 @@ export async function getContent() {
 
 export async function getPriceList() {
   try {
-    const response = await fetch(`http://127.0.0.1:3000/api/price-list`);
+    const response = await fetch(`${process.env.API_URL}/price-list`);
     const data = await response.json();
     return data;
   } catch (err) {}
@@ -18,7 +18,7 @@ export async function getPriceList() {
 
 export async function getEvents() {
   try {
-    const response = await fetch(`http://127.0.0.1:3000/api/events`);
+    const response = await fetch(`${process.env.API_URL}/events`);
     const data = await response.json();
     return data;
   } catch (err) {}
