@@ -1,4 +1,3 @@
-import { Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { getContent } from '@/lib/api';
 import { Serialiser } from '@/components/Serialize';
@@ -9,29 +8,18 @@ export default async function Home() {
 
   return (
     <>
-      <Grid container direction="column" alignItems="center">
-        <Grid
-          container
-          item
-          direction="column"
-          sx={{ backgroundImage: `url(bileet.jpg)` }}
-          alignItems="center"
-          minWidth="100vw"
-          minHeight="600px"
+      <div className="relative">
+        <div
+          className="bg-[url('bileet.jpg')] bg-cover bg-center bg-no-repeat"
+          style={{ height: '600px', width: '100vw' }}
         >
-          <Grid item sx={{ pt: 5 }}>
+          <div className="flex flex-col items-center justify-center h-full p-4">
             <Image src="logo.svg" alt="Jouluristeily 2022" width={600} height={400} />
-          </Grid>
-          <Grid item>
-            <Typography variant="h3" color="white" sx={{ mt: -8 }}>
-              1.-2.12.2023
-            </Typography>
-          </Grid>
-        </Grid>
-        <Grid item sx={{ px: { xs: 2, sm: 4, md: 10 }, py: 2 }}>
-          {text && <Serialiser>{text}</Serialiser>}
-        </Grid>
-      </Grid>
+            <h3 className="text-3xl text-white mt-[-2rem]">1.-2.12.2023</h3>
+          </div>
+        </div>
+        <div className="p-4 md:p-10 text-center">{text && <Serialiser>{text}</Serialiser>}</div>
+      </div>
     </>
   );
 }
