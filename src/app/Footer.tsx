@@ -1,48 +1,33 @@
-import { Box, Divider, Grid, Link, Typography } from '@mui/material';
+import React from 'react';
 
 const Footer = () => (
-  <Box
-    sx={{
-      color: '#000',
-      bgcolor: '#fff',
+  <div
+    className="bg-white text-center"
+    style={{
       outline: '5px dashed yellow',
       boxShadow: '0 0 0 5px red',
-      minWidth: '100%',
     }}
   >
-    <Grid container direction="column" spacing={1} sx={{ mt: 1 }}>
-      <Grid item container justifyContent="center" spacing={1}>
-        <Grid item>
-          <Link
+    <div className="container mx-auto p-4">
+      <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0">
+        <div className="md:flex-grow">
+          <a
             href="https://www.facebook.com/jouluristeily"
-            variant="subtitle1"
-            underline="hover"
-            color="inherit"
+            className="text-base text-gray-700 hover:underline mx-2"
           >
             Facebook
-          </Link>
-        </Grid>
-        <Grid item>
-          <Divider orientation="vertical" />
-        </Grid>
-        <Grid item>
-          <Link
+          </a>
+          <a
             href="https://www.instagram.com/jouluristeily/"
-            variant="subtitle1"
-            underline="hover"
-            color="inherit"
+            className="text-base text-gray-700 hover:underline mx-2"
           >
             Instagram
-          </Link>
-        </Grid>
-      </Grid>
-      <Grid item>
-        <Typography variant="subtitle1" sx={{ textAlign: 'center' }}>
-          Jouluristeily 2023
-        </Typography>
-      </Grid>
-    </Grid>
-  </Box>
+          </a>
+        </div>
+      </div>
+      <p className="text-base text-gray-700">Jouluristeily 2023</p>
+    </div>
+  </div>
 );
 
 export default Footer;

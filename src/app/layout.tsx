@@ -1,10 +1,7 @@
-import DrawerAppBar from '@/components/DrawerAppBar';
-import { Box, Stack } from '@mui/material';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Metadata } from 'next';
 import Footer from './Footer';
-
-const inter = Inter({ subsets: ['latin'] });
+import ResponsiveNav from '@/components/ResponsiveNav';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Jouluristeily 2023',
@@ -14,12 +11,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Stack justifyContent="space-between" minHeight="100vh" minWidth="100vw">
-          <DrawerAppBar />
-          <Box sx={{ px: { xs: 2, sm: 4, md: 10 }, py: 2, minHeight: '100vh' }}>{children}</Box>
+      <body className="font-montserrat">
+        <div className="flex flex-col min-h-screen min-w-screen">
+          <ResponsiveNav />
+          <main className="flex-grow">{children}</main>
           <Footer />
-        </Stack>
+        </div>
       </body>
     </html>
   );

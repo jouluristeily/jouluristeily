@@ -1,12 +1,23 @@
 import React from 'react';
 import escapeHTML from 'escape-html';
 import { Text } from 'slate';
-import { Link, Typography } from '@mui/material';
 
-export const Serialiser = (props: { children: any[] }) => <>{serialize(props.children)}</>;
+type node = {
+  text: string | null | undefined;
+  type: string;
+  textAlign?: any;
+  bold?: any;
+  italic?: any;
+  underline?: any;
+  strikethrough?: any;
+  children: node[];
+  url?: string | undefined;
+};
 
-export const serialize = (children: any[]) =>
-  children.map((node: any, i: React.Key | null | undefined) => {
+export const Serialiser = ({ children }: { children: node[] }) => <>{serialize(children)}</>;
+
+export const serialize = (children: node[]) =>
+  children.map((node: node, i: React.Key | null | undefined) => {
     if (!node) return null;
 
     if (Text.isText(node)) {
@@ -16,91 +27,87 @@ export const serialize = (children: any[]) =>
     switch (node.type) {
       case 'h1':
         return (
-          <Typography
+          <h1
             key={i}
-            variant="h1"
-            sx={{
-              textAlign: node.textAlign || 'left',
-              fontWeight: node.bold ? 'bold' : 'regular',
-              fontStyle: node.italic ? 'italic' : 'normal',
-              textDecoration: node.underline ? 'underline' : 'none',
-              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
-              fontSize: '2rem',
-              color: 'red',
-              letterSpacing: '-2%',
-            }}
+            className={`${node.textAlign || 'left'} font-bold ${
+              node.bold ? 'font-bold' : 'font-normal'
+            } ${node.italic ? 'italic' : 'not-italic'} ${
+              node.underline ? 'underline' : 'no-underline'
+            } ${
+              node.strikethrough ? 'line-through' : 'no-line-through'
+            } text-2xl font-bold tracking-wide text-red-600`}
           >
             {serialize(node.children)}
-          </Typography>
+          </h1>
         );
-
       case 'h2':
         return (
-          <Typography
+          <h2
             key={i}
-            variant="h2"
-            sx={{
-              textAlign: node.textAlign || 'left',
-              fontWeight: node.bold ? 'bold' : 'regular',
-              fontStyle: node.italic ? 'italic' : 'normal',
-              textDecoration: node.underline ? 'underline' : 'none',
-              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
-              fontSize: '2rem',
-            }}
+            className={`${node.textAlign || 'left'} font-bold ${
+              node.bold ? 'font-bold' : 'font-normal'
+            } ${node.italic ? 'italic' : 'not-italic'} ${
+              node.underline ? 'underline' : 'no-underline'
+            } ${
+              node.strikethrough ? 'line-through' : 'no-line-through'
+            } text-xl font-bold tracking-wide`}
           >
             {serialize(node.children)}
-          </Typography>
+          </h2>
         );
-
       case 'h3':
         return (
-          <Typography
+          <h3
             key={i}
-            variant="h3"
-            sx={{
-              textAlign: node.textAlign || 'left',
-              fontWeight: node.bold ? 'bold' : 'regular',
-              fontStyle: node.italic ? 'italic' : 'normal',
-              textDecoration: node.underline ? 'underline' : 'none',
-              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
-              fontSize: '1.5rem',
-            }}
+            className={`${node.textAlign || 'left'} font-bold ${
+              node.bold ? 'font-bold' : 'font-normal'
+            } ${node.italic ? 'italic' : 'not-italic'} ${
+              node.underline ? 'underline' : 'no-underline'
+            } ${
+              node.strikethrough ? 'line-through' : 'no-line-through'
+            } text-lg font-bold tracking-wide`}
           >
             {serialize(node.children)}
-          </Typography>
+          </h3>
         );
-
+      case 'h4':
+        return (
+          <h4
+            key={i}
+            className={`${node.textAlign || 'left'} font-bold ${
+              node.bold ? 'font-bold' : 'font-normal'
+            } ${node.italic ? 'italic' : 'not-italic'} ${
+              node.underline ? 'underline' : 'no-underline'
+            } ${node.strikethrough ? 'line-through' : 'no-line-through'} text-base font-bold`}
+          >
+            {serialize(node.children)}
+          </h4>
+        );
       case 'link':
         return node.url ? (
-          <Link
+          <a
             key={i}
             href={node.url}
-            underline="hover"
+            className="hover:underline text-blue-500"
             target="_blank"
             rel="noopener noreferrer"
-            fontSize="medium"
           >
             {serialize(node.children)}
-          </Link>
+          </a>
         ) : null;
 
       default:
         return (
-          <Typography
+          <p
             key={i}
-            sx={{
-              fontWeight: node.bold ? 'bold' : 'regular',
-              fontStyle: node.italic ? 'italic' : 'normal',
-              textDecoration: node.underline ? 'underline' : 'none',
-              textDecorationLine: node.strikethrough ? 'line-through' : 'none',
-              textAlign: node.textAlign || 'left', // Default to 'left' if not specified
-            }}
-            variant="body1" // Default variant for unhandled types
+            className={`${node.textAlign || 'left'} ${node.bold ? 'font-bold' : 'font-normal'} ${
+              node.italic ? 'italic' : 'not-italic'
+            } ${node.underline ? 'underline' : 'no-underline'} ${
+              node.strikethrough ? 'line-through' : 'no-line-through'
+            }`}
           >
             {serialize(node.children)}
-          </Typography>
+          </p>
         );
     }
   });
-
-export default Serialiser;

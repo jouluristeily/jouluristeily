@@ -1,4 +1,3 @@
-import { Box, Stack } from '@mui/material';
 import Image from 'next/image';
 import { getContent } from '@/lib/api';
 import { Serialiser } from '@/components/Serialize';
@@ -9,10 +8,18 @@ export default async function Home() {
 
   return (
     <>
-      <Stack alignItems="center">
-        <Image src="logo.svg" alt="Jouluristeily 2022" width={400} height={300} />
-        {text && <Serialiser>{text}</Serialiser>}
-      </Stack>
+      <div className="relative">
+        <div
+          className="bg-[url('bileet.jpg')] bg-cover bg-center bg-no-repeat"
+          style={{ height: '600px', width: '100vw' }}
+        >
+          <div className="flex flex-col items-center justify-center h-full p-4">
+            <Image src="logo.svg" alt="Jouluristeily 2022" width={600} height={400} />
+            <h3 className="text-3xl text-white mt-[-2rem]">1.-2.12.2023</h3>
+          </div>
+        </div>
+        <div className="p-4 md:p-10 text-center">{text && <Serialiser>{text}</Serialiser>}</div>
+      </div>
     </>
   );
 }
