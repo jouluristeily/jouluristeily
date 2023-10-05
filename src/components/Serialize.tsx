@@ -35,7 +35,7 @@ export const serialize = (children: node[]) =>
               node.underline ? 'underline' : 'no-underline'
             } ${
               node.strikethrough ? 'line-through' : 'no-line-through'
-            } text-2xl font-bold tracking-wide text-red-600`}
+            } text-4xl font-bold tracking-wide text-red-600 font-title`}
           >
             {serialize(node.children)}
           </h1>
@@ -50,7 +50,7 @@ export const serialize = (children: node[]) =>
               node.underline ? 'underline' : 'no-underline'
             } ${
               node.strikethrough ? 'line-through' : 'no-line-through'
-            } text-xl font-bold tracking-wide`}
+            } text-xl font-bold tracking-wide font-secondary`}
           >
             {serialize(node.children)}
           </h2>
@@ -104,7 +104,7 @@ export const serialize = (children: node[]) =>
               node.italic ? 'italic' : 'not-italic'
             } ${node.underline ? 'underline' : 'no-underline'} ${
               node.strikethrough ? 'line-through' : 'no-line-through'
-            }`}
+            } font-paragraph`}
           >
             {serialize(node.children)}
           </p>

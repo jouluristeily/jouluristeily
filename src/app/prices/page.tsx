@@ -24,11 +24,11 @@ export default async function PriceList() {
   const appro = items.filter((item) => item.type === 'appro');
 
   return (
-    <div className="flex flex-col items-center space-y-5">
-      <div>{contentText && <Serialiser>{contentText}</Serialiser>}</div>
+    <div className="flex flex-col items-center max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+      <div className="mt-8">{contentText && <Serialiser>{contentText}</Serialiser>}</div>
 
-      <div className="text-center">
-        <h2 className="text-2xl font-bold pb-3">Jouluristeilyn hyttihinnasto 2022</h2>
+      <div className="mt-8 text-center pb-8">
+        <h2 className="text-2xl font-bold pb-3">Jouluristeilyn hyttihinnasto 2023</h2>
         <div className="space-y-2">
           {jrHytit.map((item) => (
             <PriceItem
@@ -41,10 +41,10 @@ export default async function PriceList() {
         </div>
       </div>
 
-      <div className="text-center">
-        <h2 className="text-2xl font-bold">Ankkuri-Appro /henkilö</h2>
+      <div className="mt-8 text-center pb-8">
+        <h2 className="text-2xl font-bold">TUPLIS hyttihinnasto</h2>
         <div className="space-y-2">
-          {appro.map((item) => (
+          {tpHytit.map((item) => (
             <PriceItem
               key={item.title}
               title={item.title}
@@ -55,10 +55,10 @@ export default async function PriceList() {
         </div>
       </div>
 
-      <div className="text-center">
-        <h2 className="text-2xl font-bold">TUPLIS hyttihinnasto</h2>
-        <div className="space-y-2">
-          {tpHytit.map((item) => (
+      <div className="mt-8 text-center pb-8">
+        <h2 className="text-2xl font-bold">Ankkuri-Appro /henkilö</h2>
+        <div className="space-y-2 w-full">
+          {appro.map((item) => (
             <PriceItem
               key={item.title}
               title={item.title}
