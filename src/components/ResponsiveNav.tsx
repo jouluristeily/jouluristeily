@@ -70,7 +70,7 @@ const ResponsiveNav = () => {
                       mobileOpen
                         ? 'text-black rounded  md:hover:bg-transparent  md:p-0 md:dark:hover:text-red-500  hover:bg-red-500 dark:hover:text-white md:dark:hover:bg-transparent '
                         : 'font-semibold text-2xl text-white rounded md:bg-transparent md:text-red-600 md:p-0'
-                    }`}
+                    } font-title`}
                     onClick={() => {
                       console.log('Clicked');
                       setMobileOpen(false); // Close the mobile menu when an item is clicked
