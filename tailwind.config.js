@@ -8,8 +8,16 @@ module.exports = {
     // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        title: ['var(--font-passionone)'],
+        secondary: ['var(--font-patuaone)'],
+        paragraph: ['var(--font-opensans)'],
+      },
+    },
   },
+  variants: {},
   plugins: [],
 };

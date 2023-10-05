@@ -1,7 +1,27 @@
 import { Metadata } from 'next';
 import Footer from './Footer';
 import ResponsiveNav from '@/components/ResponsiveNav';
+import { Passion_One, Patua_One, Open_Sans } from 'next/font/google';
 import './globals.css';
+
+const passionOne = Passion_One({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-passionone',
+});
+
+const patuaOne = Patua_One({
+  subsets: ['latin'],
+  weight: ['400'],
+  display: 'swap',
+  variable: '--font-patuaone',
+});
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-opensans',
+});
 
 export const metadata: Metadata = {
   title: 'Jouluristeily 2023',
@@ -10,8 +30,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="font-montserrat">
+    <html
+      lang="en"
+      className={`${passionOne.variable} ${patuaOne.variable} ${openSans.variable}  font-sans`}
+    >
+      <body className="font-opensans">
         <div className="flex flex-col min-h-screen min-w-screen">
           <ResponsiveNav />
           <main className="flex-grow">{children}</main>
