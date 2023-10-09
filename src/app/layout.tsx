@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-opensans">
         <div className="flex flex-col min-h-screen min-w-screen">
           <ResponsiveNav />
-          <main className="flex-grow py-8">{children}</main>
+          <main className="flex-grow pb-8">{children}</main>
           <Footer />
         </div>
       </body>
