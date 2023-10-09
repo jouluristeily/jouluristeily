@@ -2,8 +2,9 @@ import React from 'react';
 import { getContent, getPriceList } from '@/lib/api';
 import { Serialiser } from '@/app/Serialize';
 import PriceItem from '@/app/prices/PriceItem';
+import SubList from './SubList';
 
-interface PriceListItem {
+export interface PriceListItem {
   title: string;
   price: string;
   description: string;
@@ -30,47 +31,9 @@ export default async function PriceList() {
     <div className="flex flex-col items-center max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 pb-8">
       <div className="mt-8">{contentText && <Serialiser>{contentText}</Serialiser>}</div>
 
-      <div className="mt-8 text-center pb-8">
-        <h2 className="text-2xl font-bold pb-3">Jouluristeilyn hyttihinnasto 2023</h2>
-        <div className="space-y-2">
-          {sortedJrHytit.map((item) => (
-            <PriceItem
-              key={item.title}
-              title={item.title}
-              price={item.price}
-              description={item.description}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-8 text-center pb-8">
-        <h2 className="text-2xl font-bold pb-3">TUPLIS hyttihinnasto</h2>
-        <div className="space-y-2">
-          {sortedTpHytit.map((item) => (
-            <PriceItem
-              key={item.title}
-              title={item.title}
-              price={item.price}
-              description={item.description}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-8 text-center pb-8">
-        <h2 className="text-2xl font-bold pb-3">Ankkuri-Appro / henkilö</h2>
-        <div className="space-y-2 w-full">
-          {appro.map((item) => (
-            <PriceItem
-              key={item.title}
-              title={item.title}
-              price={item.price}
-              description={item.description}
-            />
-          ))}
-        </div>
-      </div>
+      <SubList title="Jouluristeilyn hyttihinnasto 2023" hytit={sortedJrHytit} />
+      <SubList title="TUPLIS hyttihinnasto" hytit={sortedTpHytit} />
+      <SubList title="Ankkuri-Appro / henkilö" hytit={appro} />
     </div>
   );
 }
