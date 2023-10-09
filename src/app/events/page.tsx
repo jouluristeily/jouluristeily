@@ -1,5 +1,5 @@
 import { getEvents } from '@/lib/api';
-import EventList from '@/components/events/EventList';
+import EventList from '@/app/events/EventList';
 
 export default async function Events() {
   const eventsResponse = await getEvents();

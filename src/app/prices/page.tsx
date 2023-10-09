@@ -1,7 +1,7 @@
 import React from 'react';
 import { getContent, getPriceList } from '@/lib/api';
-import { Serialiser } from '@/components/Serialize';
-import PriceItem from '@/components/PriceItem';
+import { Serialiser } from '@/app/Serialize';
+import PriceItem from '@/app/prices/PriceItem';
 
 interface PriceListItem {
   title: string;
@@ -20,7 +20,10 @@ export default async function PriceList() {
   const items: PriceListItem[] = priceList.docs;
 
   const jrHytit = items.filter((item) => item.type === 'jr_hytti');
+  //sort alphabetically based on title
+  const sortedJrHytit = jrHytit.sort((a, b) => a.title.localeCompare(b.title));
   const tpHytit = items.filter((item) => item.type === 'tp_hytti');
+  const sortedTpHytit = tpHytit.sort((a, b) => a.title.localeCompare(b.title));
   const appro = items.filter((item) => item.type === 'appro');
 
   return (
@@ -30,7 +33,7 @@ export default async function PriceList() {
       <div className="mt-8 text-center pb-8">
         <h2 className="text-2xl font-bold pb-3">Jouluristeilyn hyttihinnasto 2023</h2>
         <div className="space-y-2">
-          {jrHytit.map((item) => (
+          {sortedJrHytit.map((item) => (
             <PriceItem
               key={item.title}
               title={item.title}
@@ -42,9 +45,9 @@ export default async function PriceList() {
       </div>
 
       <div className="mt-8 text-center pb-8">
-        <h2 className="text-2xl font-bold">TUPLIS hyttihinnasto</h2>
+        <h2 className="text-2xl font-bold pb-3">TUPLIS hyttihinnasto</h2>
         <div className="space-y-2">
-          {tpHytit.map((item) => (
+          {sortedTpHytit.map((item) => (
             <PriceItem
               key={item.title}
               title={item.title}
@@ -56,7 +59,7 @@ export default async function PriceList() {
       </div>
 
       <div className="mt-8 text-center pb-8">
-        <h2 className="text-2xl font-bold">Ankkuri-Appro /henkilö</h2>
+        <h2 className="text-2xl font-bold pb-3">Ankkuri-Appro / henkilö</h2>
         <div className="space-y-2 w-full">
           {appro.map((item) => (
             <PriceItem

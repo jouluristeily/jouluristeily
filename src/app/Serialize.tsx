@@ -104,7 +104,7 @@ export const serialize = (children: node[]) =>
               node.italic ? 'italic' : 'not-italic'
             } ${node.underline ? 'underline' : 'no-underline'} ${
               node.strikethrough ? 'line-through' : 'no-line-through'
-            } font-paragraph`}
+            } font-paragraph leading-loose`}
           >
             {serialize(node.children)}
           </p>

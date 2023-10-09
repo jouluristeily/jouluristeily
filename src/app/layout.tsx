@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Footer from './Footer';
-import ResponsiveNav from '@/components/ResponsiveNav';
+import ResponsiveNav from '@/app/ResponsiveNav';
 import { Passion_One, Patua_One, Open_Sans } from 'next/font/google';
 import './globals.css';
 

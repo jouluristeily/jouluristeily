@@ -1,5 +1,5 @@
 import { getContent } from '@/lib/api';
-import { Serialiser } from '@/components/Serialize';
+import { Serialiser } from '@/app/Serialize';
 
 export default async function Afterlecture() {
   const content = await getContent();
