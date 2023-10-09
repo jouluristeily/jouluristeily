@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Footer from './Footer';
-import ResponsiveNav from '@/components/ResponsiveNav';
+import ResponsiveNav from '@/app/ResponsiveNav';
 import { Passion_One, Patua_One, Open_Sans } from 'next/font/google';
 import './globals.css';
 
@@ -19,6 +19,7 @@ const patuaOne = Patua_One({
 
 const openSans = Open_Sans({
   subsets: ['latin'],
+  weight: ['400', '700', '800'],
   display: 'swap',
   variable: '--font-opensans',
 });
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-opensans">
         <div className="flex flex-col min-h-screen min-w-screen">
           <ResponsiveNav />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow py-8">{children}</main>
           <Footer />
         </div>
       </body>
