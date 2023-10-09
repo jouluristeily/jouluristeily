@@ -19,6 +19,7 @@ const patuaOne = Patua_One({
 
 const openSans = Open_Sans({
   subsets: ['latin'],
+  weight: ['400', '700', '800'],
   display: 'swap',
   variable: '--font-opensans',
 });

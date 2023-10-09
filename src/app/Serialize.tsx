@@ -50,7 +50,7 @@ export const serialize = (children: node[]) =>
               node.underline ? 'underline' : 'no-underline'
             } ${
               node.strikethrough ? 'line-through' : 'no-line-through'
-            } text-xl font-bold tracking-wide font-secondary`}
+            } text-3xl font-bold tracking-wide font-secondary`}
           >
             {serialize(node.children)}
           </h2>
@@ -65,7 +65,7 @@ export const serialize = (children: node[]) =>
               node.underline ? 'underline' : 'no-underline'
             } ${
               node.strikethrough ? 'line-through' : 'no-line-through'
-            } text-lg font-bold tracking-wide`}
+            } text-2xl font-bold tracking-wide`}
           >
             {serialize(node.children)}
           </h3>
@@ -78,7 +78,7 @@ export const serialize = (children: node[]) =>
               node.bold ? 'font-bold' : 'font-normal'
             } ${node.italic ? 'italic' : 'not-italic'} ${
               node.underline ? 'underline' : 'no-underline'
-            } ${node.strikethrough ? 'line-through' : 'no-line-through'} text-base font-bold`}
+            } ${node.strikethrough ? 'line-through' : 'no-line-through'} text-xl font-bold`}
           >
             {serialize(node.children)}
           </h4>
@@ -100,9 +100,11 @@ export const serialize = (children: node[]) =>
         return (
           <p
             key={i}
-            className={`${node.textAlign || 'left'} ${node.bold ? 'font-bold' : 'font-normal'} ${
-              node.italic ? 'italic' : 'not-italic'
-            } ${node.underline ? 'underline' : 'no-underline'} ${
+            className={`${node.textAlign || 'left'} ${
+              node.bold ? 'font-extrabold' : 'font-normal'
+            } ${node.italic ? 'italic' : 'not-italic'} ${
+              node.underline ? 'underline' : 'no-underline'
+            } ${
               node.strikethrough ? 'line-through' : 'no-line-through'
             } font-paragraph leading-loose`}
           >
