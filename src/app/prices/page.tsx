@@ -26,6 +26,8 @@ export default async function PriceList() {
   const tpHytit = items.filter((item) => item.type === 'tp_hytti');
   const sortedTpHytit = tpHytit.sort((a, b) => a.title.localeCompare(b.title));
   const appro = items.filter((item) => item.type === 'appro');
+  const ruokailut = items.filter((item) => item.type === 'ruokailu');
+  const sortedRuokailut = ruokailut.sort((a, b) => a.title.localeCompare(b.title));
 
   return (
     <div className="flex flex-col items-center max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 pb-8">
@@ -34,6 +36,7 @@ export default async function PriceList() {
       <SubList title="Jouluristeilyn hyttihinnasto 2023" hytit={sortedJrHytit} />
       <SubList title="TUPLIS hyttihinnasto" hytit={sortedTpHytit} />
       <SubList title="Ankkuri-Appro / henkilö" hytit={appro} />
+      {sortedRuokailut && <SubList title="Ruokailut" hytit={sortedRuokailut} />}
     </div>
   );
 }
