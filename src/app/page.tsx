@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import { getContent } from '@/lib/api';
-import { Serialiser } from '@/components/Serialize';
+import { Serialiser } from '@/app/Serialize';
 
 export default async function Home() {
   const content = await getContent();
+  const text = content?.docs.find((doc: any) => doc.title === 'homepage')?.body;
 
   return (
     <>
@@ -31,6 +32,8 @@ export default async function Home() {
             Lipunmyyntiin
           </a>
         </div>
+
+        <div className="flex flex-col">{text && <Serialiser>{text}</Serialiser>}</div>
       </div>
     </>
   );

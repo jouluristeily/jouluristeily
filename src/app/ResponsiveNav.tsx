@@ -13,6 +13,7 @@ const ResponsiveNav = () => {
   const navItems = [
     { href: '/', label: 'JR 2023' },
     { href: '/tuplis', label: 'Tuplis' },
+    { href: '/terms', label: 'Matkaehdot' },
     { href: '/guide', label: 'Ohjeet' },
     { href: '/prices', label: 'Hinnasto' },
     // { href: '/events', label: 'Ohjelma' },
