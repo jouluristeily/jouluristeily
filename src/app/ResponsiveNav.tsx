@@ -16,7 +16,7 @@ const ResponsiveNav = () => {
     { href: '/terms', label: 'Matkaehdot' },
     { href: '/guide', label: 'Ohjeet' },
     { href: '/prices', label: 'Hinnasto' },
-    // { href: '/events', label: 'Ohjelma' },
+    { href: '/events', label: 'Ohjelma' },
     { href: '/loimu', label: 'Loimu' },
     { href: '/afterlecture', label: 'After Lecture' },
   ];
