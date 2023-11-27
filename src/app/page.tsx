@@ -35,7 +35,7 @@ export default async function Home() {
           </a>
         </div>
 
-        <div className="flex flex-col">{text && <Serialiser>{text}</Serialiser>}</div>
+        <div className="flex flex-col mx-10">{text && <Serialiser>{text}</Serialiser>}</div>
       </div>
     </>
   );
