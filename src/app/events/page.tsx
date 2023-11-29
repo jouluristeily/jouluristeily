@@ -24,7 +24,6 @@ export default async function Events() {
           >
             JR23 Käsiohjelma
           </a>
-          <p>Laitteesi ei tue tiedostomuotoa</p>
           <p>Ylläolevasta painikkeesta voit ladata käsiohjelman</p>
         </div>
       </object>
