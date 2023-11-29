@@ -9,6 +9,12 @@ const Footer = () => (
     }}
   >
     <div className="container mx-auto p-4">
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfTOWaBsXQxybeHYtfB4-Z-BxP2dG0hGVumIHt_7J2VVpyQ_Q/viewform"
+        className="font-bold text-blue-600 hover:underline"
+      >
+        Häirintäilmoituslomake
+      </a>
       <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0">
         <div className="md:flex-grow">
           <a
