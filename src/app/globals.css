@@ -19,7 +19,7 @@ h1 {
   font-style: normal;
   text-decoration: none;
   font-size: 2.25rem; /* equivalent to text-4xl */
-  color: #ff0000; /* red-600 */
+  color: #ef1424;
   letter-spacing: 0.05em; /* tracking-wide */
 }
 
@@ -46,16 +46,6 @@ h4 {
   font-style: normal;
   text-decoration: none;
   font-size: 1.25rem; /* equivalent to text-xl */
-}
-
-/* Link styling */
-a {
-  color: #0070f3; /* blue-500 */
-  text-decoration: underline;
-}
-
-a:hover {
-  text-decoration: none;
 }
 
 /* Bold, italic, underline, and strikethrough styles */
