@@ -1,23 +1,13 @@
-import type { SerializedEditorState } from 'lexical';
-import {
-  type SanitizedEditorConfig,
-  convertLexicalToHTML,
-  consolidateHTMLConverters,
-} from '@payloadcms/richtext-lexical';
+export default async function Page({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const content = await fetch(`${process.env.API_URL}/pages?where[title][equals]=${slug}`).then(
+    (res) => res.json()
+  );
+  if (!content) return <div>loading...</div>;
 
-async function lexicalToHTML(
-  editorData: SerializedEditorState,
-  editorConfig: SanitizedEditorConfig
-) {
-  return await convertLexicalToHTML({
-    converters: consolidateHTMLConverters({ editorConfig }),
-    data: editorData,
-  });
-}
-export default async function Page({ params }: { params: { slug: string; content: any } }) {
-  const { content, slug } = params;
-  return <div>slug {slug}</div>;
-  return <div dangerouslySetInnerHTML={content} />;
+  const html = content.docs[0].content_html;
+
+  return <div dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
 export async function generateStaticParams() {
@@ -25,6 +15,5 @@ export async function generateStaticParams() {
 
   return pages.docs.map((page: any) => ({
     slug: page.title,
-    content: page,
   }));
 }
