@@ -1,3 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global paragraph styles */
+p {
+  font-family: 'FontFamilyForParagraph', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 1.5; /* example line height */
+}
+
+/* Header styles */
+h1 {
+  font-family: 'FontFamilyForTitle', sans-serif;
+  text-align: left;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 2.25rem; /* equivalent to text-4xl */
+  color: #ff0000; /* red-600 */
+  letter-spacing: 0.05em; /* tracking-wide */
+}
+
+h2 {
+  font-family: 'FontFamilyForSecondary', sans-serif;
+  text-align: left;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.875rem; /* equivalent to text-3xl */
+}
+
+h3 {
+  text-align: left;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.5rem; /* equivalent to text-2xl */
+}
+
+h4 {
+  text-align: left;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.25rem; /* equivalent to text-xl */
+}
+
+/* Link styling */
+a {
+  color: #0070f3; /* blue-500 */
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Bold, italic, underline, and strikethrough styles */
+strong,
+b {
+  font-weight: bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+u {
+  text-decoration: underline;
+}
+
+s {
+  text-decoration: line-through;
+}
