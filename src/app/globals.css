@@ -2,25 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global paragraph styles */
 p {
   font-family: 'FontFamilyForParagraph', sans-serif;
   font-weight: normal;
   font-style: normal;
   text-decoration: none;
-  line-height: 1.5; /* example line height */
+  line-height: 1.5;
 }
 
-/* Header styles */
 h1 {
   font-family: 'FontFamilyForTitle', sans-serif;
   text-align: left;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
-  font-size: 2.25rem; /* equivalent to text-4xl */
+  font-size: 2.25rem;
   color: #ef1424;
-  letter-spacing: 0.05em; /* tracking-wide */
+  letter-spacing: 0.05em;
 }
 
 h2 {
@@ -29,7 +27,7 @@ h2 {
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
-  font-size: 1.875rem; /* equivalent to text-3xl */
+  font-size: 1.875rem;
 }
 
 h3 {
@@ -37,7 +35,7 @@ h3 {
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
-  font-size: 1.5rem; /* equivalent to text-2xl */
+  font-size: 1.5rem;
 }
 
 h4 {
@@ -45,10 +43,9 @@ h4 {
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
-  font-size: 1.25rem; /* equivalent to text-xl */
+  font-size: 1.25rem;
 }
 
-/* Bold, italic, underline, and strikethrough styles */
 strong,
 b {
   font-weight: bold;
