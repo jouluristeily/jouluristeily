@@ -1,13 +1,20 @@
+import Serializer from '../SerializeLexical';
+
 export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const content = await fetch(`${process.env.API_URL}/pages?where[title][equals]=${slug}`).then(
     (res) => res.json()
   );
+
   if (!content) return <div>loading...</div>;
 
-  const html = content.docs[0].content_html;
+  const pageContent = content.docs[0].content;
 
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <div>
+      <Serializer content={pageContent} />
+    </div>
+  );
 }
 
 export async function generateStaticParams() {
