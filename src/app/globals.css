@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+p {
+  font-family: 'FontFamilyForParagraph', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+h1 {
+  font-family: 'FontFamilyForTitle', sans-serif;
+  text-align: left;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 2.25rem;
+  color: #ef1424;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-family: 'FontFamilyForSecondary', sans-serif;
+  text-align: left;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.875rem;
+}
+
+h3 {
+  text-align: left;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+h4 {
+  text-align: left;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+u {
+  text-decoration: underline;
+}
+
+s {
+  text-decoration: line-through;
+}

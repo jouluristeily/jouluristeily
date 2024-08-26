@@ -11,11 +11,12 @@ const ResponsiveNav = () => {
   };
 
   const navItems = [
-    { href: '/', label: 'JR 2023' },
+    { href: '/', label: 'JR 2024' },
     { href: '/tuplis', label: 'Tuplis' },
     { href: '/terms', label: 'Matkaehdot' },
     { href: '/guide', label: 'Ohjeet' },
     { href: '/events', label: 'Ohjelma' },
+    { href: '/gallery', label: 'Galleria' },
     { href: '/prices', label: 'Hinnasto' },
     { href: '/loimu', label: 'Loimu' },
     { href: '/afterlecture', label: 'After Lecture' },

@@ -14,12 +14,12 @@ export default async function Home() {
           style={{ height: '600px', width: '100vw' }}
         >
           <div className="flex flex-col items-center justify-center h-full p-4">
-            <Image src="logo.svg" alt="Jouluristeily 2022" width={600} height={400} />
-            <h3 className="text-3xl text-white mt-[-2rem]">30.11.-1.12.2023</h3>
+            <Image src="logo.svg" alt="Jouluristeily 2024" width={600} height={400} />
+            <h3 className="text-3xl text-white mt-[-2rem]">TBA</h3>
           </div>
         </div>
         {/* <h1
-          className={`center text-center text-4xl font-bold tracking-wide text-red-600 font-title`}
+          className={`center text-center text-4xl font-bold tracking-wide font-title`}
         >
           Tänä vuonna Jouluristeily seilataan 30.11.- 01.12.2023!
         </h1> */}

@@ -25,7 +25,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Jouluristeily 2023',
+  title: 'Jouluristeily 2024',
   description: 'Luonnontieteilijöiden jouluristeily 2023',
 };
 

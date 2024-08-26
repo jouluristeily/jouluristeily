@@ -35,7 +35,7 @@ export const serialize = (children: node[]) =>
               node.underline ? 'underline' : 'no-underline'
             } ${
               node.strikethrough ? 'line-through' : 'no-line-through'
-            } text-4xl font-bold tracking-wide text-red-600 font-title`}
+            } text-4xl font-bold tracking-wide font-title`}
           >
             {serialize(node.children)}
           </h1>
