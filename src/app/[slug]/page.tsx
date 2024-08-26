@@ -6,7 +6,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     (res) => res.json()
   );
 
-  if (!content) return <div>loading...</div>;
+  if (!content || !content.docs || content.docs.length === 0) return <div>loading...</div>;
 
   const pageContent = content.docs[0].content;
 
