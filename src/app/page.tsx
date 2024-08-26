@@ -18,9 +18,12 @@ export default async function Home() {
             <h3 className="text-3xl text-white mt-[-2rem]">TBA</h3>
           </div>
         </div>
-        <h1 className={`center text-center text-4xl font-bold tracking-wide font-title`}>
+        {/* <h1
+          className={`center text-center text-4xl font-bold tracking-wide font-title`}
+        >
           Tänä vuonna Jouluristeily seilataan 30.11.- 01.12.2023!
-        </h1>
+        </h1> */}
+        <br />
 
         {/* <div className="flex justify-center items-center">
           <a
@@ -33,7 +36,7 @@ export default async function Home() {
           </a>
         </div> */}
 
-        <div className="flex flex-col px-6">{text && <Serialiser>{text}</Serialiser>}</div>
+        <div className="flex flex-col mx-10">{text && <Serialiser>{text}</Serialiser>}</div>
       </div>
     </>
   );
