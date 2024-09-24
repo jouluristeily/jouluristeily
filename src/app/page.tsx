@@ -15,7 +15,7 @@ export default async function Home() {
         >
           <div className="flex flex-col items-center justify-center h-full p-4">
             <Image src="logo.svg" alt="Jouluristeily 2024" width={600} height={400} />
-            <h3 className="text-3xl text-white mt-[-2rem]">TBA</h3>
+            <h3 className="text-3xl text-white mt-[-2rem]">28.-29.11.2024</h3>
           </div>
         </div>
         {/* <h1
@@ -35,8 +35,9 @@ export default async function Home() {
             Lipunmyyntiin
           </a>
         </div> */}
-
-        <div className="flex flex-col mx-10">{text && <Serialiser>{text}</Serialiser>}</div>
+        <div className="flex flex-col mx-10 md:mx-60 lg:mx-120">
+          {text && <Serialiser>{text}</Serialiser>}
+        </div>
       </div>
     </>
   );
