@@ -28,6 +28,8 @@ export default async function PriceList() {
   const appro = items.filter((item) => item.type === 'appro');
   const ruokailut = items.filter((item) => item.type === 'ruokailu');
   const sortedRuokailut = ruokailut.sort((a, b) => a.title.localeCompare(b.title));
+  const tp_ruokailut = items.filter((item) => item.type === 'tp_ruokailu');
+  const tp_sortedRuokailut = tp_ruokailut.sort((a, b) => a.title.localeCompare(b.title));
 
   return (
     <div className="flex flex-col items-center max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 pb-8">
@@ -37,6 +39,7 @@ export default async function PriceList() {
       <SubList title="TUPLIS hyttihinnasto" hytit={sortedTpHytit} />
       <SubList title="Ankkuri-Appro / henkilö" hytit={appro} />
       {sortedRuokailut && <SubList title="Ruokailut" hytit={sortedRuokailut} />}
+      {sortedRuokailut && <SubList title="Tuplis Ruokailut" hytit={tp_sortedRuokailut} />}
     </div>
   );
 }
