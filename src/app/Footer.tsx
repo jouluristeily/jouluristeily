@@ -10,7 +10,7 @@ const Footer = () => (
   >
     <div className="container mx-auto p-4">
       <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfTOWaBsXQxybeHYtfB4-Z-BxP2dG0hGVumIHt_7J2VVpyQ_Q/viewform"
+        href="https://forms.gle/CzLeisKsvrChkwWC8"
         className="font-bold text-blue-600 hover:underline"
       >
         Häirintäilmoituslomake

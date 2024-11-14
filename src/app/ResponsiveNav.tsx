@@ -22,7 +22,7 @@ const ResponsiveNav = () => {
     { href: '/loimu', label: 'Loimu' },
     { href: '/afterlecture', label: 'After Lecture' },
     {
-      href: 'https://docs.google.com/forms/d/e/1FAIpQLSfTOWaBsXQxybeHYtfB4-Z-BxP2dG0hGVumIHt_7J2VVpyQ_Q/viewform',
+      href: 'https://forms.gle/CzLeisKsvrChkwWC8',
       label: 'Häirintäilmoitus',
     },
   ];
