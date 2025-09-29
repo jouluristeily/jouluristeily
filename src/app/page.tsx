@@ -15,7 +15,7 @@ export default async function Home() {
         >
           <div className="flex flex-col items-center justify-center h-full p-4">
             <Image src="logo.svg" alt="Jouluristeily 2024" width={600} height={400} />
-            <h3 className="text-3xl text-white mt-[-2rem]">28.-29.11.2024</h3>
+            <h3 className="text-3xl text-white mt-[-2rem]">26.-28.11.2025</h3>
           </div>
         </div>
         {/* <h1
@@ -25,7 +25,7 @@ export default async function Home() {
         </h1> */}
         <br />
 
-        <div className="flex justify-center items-center">
+        {/* <div className="flex justify-center items-center">
           <a
             href="https://kide.app/events/141ca3fa-b0cf-43ad-bc41-54ef889558c1"
             className="text-white text-2xl font-title bg-red hover:bg-red-400 focus:ring-4 focus:ring-red-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 "
@@ -34,7 +34,7 @@ export default async function Home() {
           >
             Lipunmyyntiin
           </a>
-        </div>
+        </div> */}
         <div className="flex flex-col mx-10 md:mx-60 lg:mx-120">
           {text && <Serialiser>{text}</Serialiser>}
         </div>
