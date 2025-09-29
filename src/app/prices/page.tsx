@@ -35,7 +35,7 @@ export default async function PriceList() {
     <div className="flex flex-col items-center max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 pb-8">
       <div className="mt-8">{contentText && <Serialiser>{contentText}</Serialiser>}</div>
 
-      <SubList title="Jouluristeilyn hyttihinnasto 2024" hytit={sortedJrHytit} />
+      <SubList title="Jouluristeilyn hyttihinnasto 2025" hytit={sortedJrHytit} />
       <SubList title="TUPLIS hyttihinnasto" hytit={sortedTpHytit} />
       <SubList title="Ankkuri-Appro / henkilö" hytit={appro} />
       {sortedRuokailut && <SubList title="Ruokailut" hytit={sortedRuokailut} />}

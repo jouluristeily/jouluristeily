@@ -14,7 +14,7 @@ export default async function Home() {
           style={{ height: '600px', width: '100vw' }}
         >
           <div className="flex flex-col items-center justify-center h-full p-4">
-            <Image src="logo.svg" alt="Jouluristeily 2024" width={600} height={400} />
+            <Image src="logo.svg" alt="Jouluristeily 2025" width={600} height={400} />
             <h3 className="text-3xl text-white mt-[-2rem]">26.-28.11.2025</h3>
           </div>
         </div>
