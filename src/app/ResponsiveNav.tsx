@@ -12,7 +12,7 @@ const ResponsiveNav = () => {
 
   const navItems = [
     { href: '/', label: 'JR 2024' },
-    { href: 'https://kide.app/events/141ca3fa-b0cf-43ad-bc41-54ef889558c1', label: 'Liput' },
+    /*  { href: 'https://kide.app/events/141ca3fa-b0cf-43ad-bc41-54ef889558c1', label: 'Liput' }, */
     { href: '/tuplis', label: 'Tuplis' },
     { href: '/terms', label: 'Matkaehdot' },
     { href: '/guide', label: 'Ohjeet' },
