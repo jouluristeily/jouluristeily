@@ -25,16 +25,16 @@ export default async function Home() {
         </h1> */}
         <br />
 
-        {/* <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center">
           <a
-            href="https://kide.app/events/141ca3fa-b0cf-43ad-bc41-54ef889558c1"
+            href="https://kide.app/events/85a27854-74fb-4c72-b85b-8e5af0bb6417"
             className="text-white text-2xl font-title bg-red hover:bg-red-400 focus:ring-4 focus:ring-red-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 "
             target="_blank"
             rel="noopener noreferrer"
           >
             Lipunmyyntiin
           </a>
-        </div> */}
+        </div>
         <div className="flex flex-col mx-10 md:mx-60 lg:mx-120">
           {text && <Serialiser>{text}</Serialiser>}
         </div>
