@@ -27,7 +27,7 @@ export default async function Home() {
 
         <div className="flex justify-center items-center">
           <a
-            href="https://kide.app/events/85a27854-74fb-4c72-b85b-8e5af0bb6417"
+            href="https://kide.app/events/0cee2929-7ef9-4c7c-a768-eef5c712dd3b"
             className="text-white text-2xl font-title bg-red hover:bg-red-400 focus:ring-4 focus:ring-red-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 "
             target="_blank"
             rel="noopener noreferrer"
