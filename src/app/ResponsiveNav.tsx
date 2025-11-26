@@ -12,11 +12,11 @@ const ResponsiveNav = () => {
 
   const navItems = [
     { href: '/', label: 'JR 2025' },
-    { href: 'https://kide.app/events/0cee2929-7ef9-4c7c-a768-eef5c712dd3b', label: 'Liput' },
+    /* { href: 'https://kide.app/events/0cee2929-7ef9-4c7c-a768-eef5c712dd3b', label: 'Liput' }, */
     { href: '/tuplis', label: 'Tuplis' },
     { href: '/terms', label: 'Matkaehdot' },
     { href: '/guide', label: 'Ohjeet' },
-    // { href: '/events', label: 'Ohjelma' },
+    { href: '/events', label: 'Ohjelma' },
     { href: '/gallery', label: 'Galleria' },
     { href: '/prices', label: 'Hinnasto' },
     { href: '/loimu', label: 'Loimu' },
