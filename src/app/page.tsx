@@ -25,7 +25,7 @@ export default async function Home() {
         </h1> */}
         <br />
 
-        <div className="flex justify-center items-center">
+        {/*  <div className="flex justify-center items-center">
           <a
             href="https://kide.app/events/0cee2929-7ef9-4c7c-a768-eef5c712dd3b"
             className="text-white text-2xl font-title bg-red hover:bg-red-400 focus:ring-4 focus:ring-red-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 "
@@ -34,7 +34,7 @@ export default async function Home() {
           >
             Lipunmyyntiin
           </a>
-        </div>
+        </div> */}
         <div className="flex flex-col mx-10 md:mx-60 lg:mx-120">
           {text && <Serialiser>{text}</Serialiser>}
         </div>
