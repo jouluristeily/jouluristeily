@@ -9,8 +9,8 @@ export default async function Events() {
   // );
 
   return (
-    <div className="flex flex-col items-center m-8 border-2">
-      <div className="flex flex-col items-center p-6 text-center">
+    <div className="h-96 flex flex-col justify-center items-center">
+      <div className="p-6 text-center">
         <a
           href="https://drive.google.com/uc?export=download&id=1K85tZWmyQxBwARU2Ghl756czCSwKUAJV"
           className="btn-primary"
@@ -21,7 +21,7 @@ export default async function Events() {
         </a>
       </div>
 
-      <div className="flex flex-col items-center p-6 text-center  bg-red-600">
+      <div className="p-6 text-center">
         <a
           href="https://drive.google.com/uc?export=download&id=1AvxUFck0Z3dv-ZBx4slCczUJZy1HW2o9"
           className="btn-primary"
