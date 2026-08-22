@@ -25,7 +25,7 @@ html[data-theme='light'] select {
 
 .event-admin-tools {
   display: grid;
-  grid-template-columns: minmax(14rem, 1fr) minmax(9rem, auto) auto;
+  grid-template-columns: minmax(14rem, 1fr) minmax(9rem, auto) minmax(10rem, auto) auto;
   align-items: end;
   gap: 1rem;
   margin: 0 0 1.5rem;
@@ -57,6 +57,36 @@ html[data-theme='light'] select {
   display: grid;
   gap: 0.35rem;
   font-weight: 600;
+}
+
+.event-admin-tools__programme-filter {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.event-admin-tools__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.event-admin-tools__chips button {
+  min-height: 2.5rem;
+  border: 1px solid var(--theme-elevation-300);
+  border-radius: 999px;
+  background: var(--theme-input-bg);
+  color: var(--theme-text);
+  padding: 0.35rem 0.65rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.event-admin-tools__chips button.is-active {
+  border-color: #c1121f;
+  background: #c1121f;
+  color: #ffffff;
 }
 
 .event-admin-tools select,

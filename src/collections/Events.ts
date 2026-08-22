@@ -14,7 +14,7 @@ export const Events: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'startAt', 'location'],
+    defaultColumns: ['title', 'programme', 'startAt', 'location'],
     group: 'Programme',
     components: {
       beforeList: ['/src/components/admin/EventListTools#EventListTools'],
@@ -40,11 +40,27 @@ export const Events: CollectionConfig = {
       name: 'startAt',
       type: 'date',
       required: true,
+      admin: {
+        date: {
+          pickerAppearance: 'dayAndTime',
+          displayFormat: 'dd.MM.yyyy HH:mm',
+          timeFormat: 'HH:mm',
+          timeIntervals: 15,
+        },
+      },
     },
     {
       name: 'endAt',
       type: 'date',
       required: true,
+      admin: {
+        date: {
+          pickerAppearance: 'dayAndTime',
+          displayFormat: 'dd.MM.yyyy HH:mm',
+          timeFormat: 'HH:mm',
+          timeIntervals: 15,
+        },
+      },
     },
     {
       name: 'location',

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useListQuery, useSelection } from '@payloadcms/ui'
+import type { Where } from 'payload'
 
 type EventDocument = {
   id: number | string
@@ -31,6 +32,7 @@ export function EventListTools() {
   const { selectedIDs } = useSelection()
   const [years, setYears] = useState<number[]>([])
   const [selectedYear, setSelectedYear] = useState<number | ''>('')
+  const [selectedProgramme, setSelectedProgramme] = useState<'jouluristeily' | 'tuplis' | ''>('')
   const [isCopying, setIsCopying] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
 
@@ -51,10 +53,16 @@ export function EventListTools() {
     void loadYears()
   }, [])
 
-  const filterByYear = async (year: number | '') => {
+  const filterEvents = async (year: number | '', programme: 'jouluristeily' | 'tuplis' | '') => {
     setSelectedYear(year)
+    setSelectedProgramme(programme)
     setMessage(null)
-    await handleWhereChange?.(year === '' ? {} : { startAt: yearBounds(year) })
+
+    const filters: Where[] = []
+    if (year !== '') filters.push({ startAt: yearBounds(year) })
+    if (programme) filters.push({ programme: { equals: programme } })
+
+    await handleWhereChange?.(filters.length > 1 ? { and: filters } : (filters[0] ?? {}))
   }
 
   const copySelectedToNextYear = async () => {
@@ -114,7 +122,7 @@ export function EventListTools() {
       </div>
       <label>
         <span>Vuosi</span>
-        <select value={selectedYear} onChange={(event) => void filterByYear(event.target.value ? Number(event.target.value) : '')}>
+        <select value={selectedYear} onChange={(event) => void filterEvents(event.target.value ? Number(event.target.value) : '', selectedProgramme)}>
           <option value="">Kaikki vuodet</option>
           {years.map((year) => (
             <option key={year} value={year}>
@@ -123,6 +131,25 @@ export function EventListTools() {
           ))}
         </select>
       </label>
+      <div className="event-admin-tools__programme-filter" aria-label="Rajaa ohjelman mukaan">
+        <span>Ohjelma</span>
+        <div className="event-admin-tools__chips">
+          {[
+            ['', 'Kaikki'],
+            ['jouluristeily', 'Jouluristeily'],
+            ['tuplis', 'Tuplis'],
+          ].map(([value, label]) => (
+            <button
+              key={value || 'all'}
+              type="button"
+              className={selectedProgramme === value ? 'is-active' : undefined}
+              onClick={() => void filterEvents(selectedYear, value as 'jouluristeily' | 'tuplis' | '')}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
       <button type="button" onClick={() => void copySelectedToNextYear()} disabled={!selectedIDs.length || isCopying}>
         {isCopying ? 'Kopioidaan...' : `Kopioi valitut vuodelle ${(selectedYear || new Date().getUTCFullYear()) + 1}`}
       </button>

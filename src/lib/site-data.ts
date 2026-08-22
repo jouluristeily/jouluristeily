@@ -170,7 +170,7 @@ const getCachedEvents = unstable_cache(
   },
   // The programme seed ran after the first empty response was cached. Version this
   // key so existing deployments immediately read the newly imported events.
-  ['events-v2'],
+  ['events-v4'],
   {
     revalidate: 60 * 5,
     tags: ['events'],
