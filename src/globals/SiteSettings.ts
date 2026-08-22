@@ -72,6 +72,10 @@ export const SiteSettings: GlobalConfig = {
     {
       name: 'programDownloads',
       type: 'array',
+      label: 'Programme downloads',
+      admin: {
+        description: 'Add links to programme PDFs hosted anywhere, such as Google Drive, OneDrive, or Vercel Blob.',
+      },
       defaultValue: [
         {
           label: 'Tuplis25 Käsiohjelma',
@@ -91,6 +95,10 @@ export const SiteSettings: GlobalConfig = {
         {
           name: 'url',
           type: 'text',
+          label: 'Download URL',
+          admin: {
+            description: 'Use a direct public link to the PDF or download page.',
+          },
           required: true,
         },
       ],

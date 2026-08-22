@@ -69,10 +69,7 @@ const FALLBACK_SITE_SETTINGS: SiteSettingsData = {
     { label: 'Hinnasto', url: '/prices' },
     { label: 'Ohjelma', url: '/events' },
   ],
-  programDownloads: [
-    { label: 'Tuplis25 Kasiohjelma', url: '/TUPLIS25_Kasiohjelma.pdf' },
-    { label: 'JR25 Kasiohjelma', url: '/JR25_kasiohjelma.pdf' },
-  ],
+  programDownloads: [],
   socialLinks: [
     { label: 'Facebook', url: 'https://www.facebook.com/jouluristeily' },
     { label: 'Instagram', url: 'https://www.instagram.com/jouluristeily/' },

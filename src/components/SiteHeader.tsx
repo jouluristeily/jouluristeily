@@ -62,7 +62,7 @@ export function SiteHeader({ eventYear, harassmentFormUrl, siteName }: SiteHeade
             onClick={() => setOpen(false)}
             aria-label={`${siteName} etusivu`}
           >
-            <img src="/icon.svg" className="site-home-icon" alt={`${siteName} icon`} />
+            <img src="/logo.svg" className="site-home-icon" alt={`${siteName} logo`} />
           </Link>
 
           <button

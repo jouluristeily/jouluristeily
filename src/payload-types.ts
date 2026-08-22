@@ -452,6 +452,9 @@ export interface SiteSetting {
    * Used in year-specific public labels, such as the price list.
    */
   eventYear?: number | null;
+  /**
+   * A short plain-text introduction shown below the homepage hero. Use the Homepage Intro content block for formatted text.
+   */
   heroBlurb?: string | null;
   featuredLinks?:
     | {
@@ -460,9 +463,15 @@ export interface SiteSetting {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Add links to programme PDFs hosted anywhere, such as Google Drive, OneDrive, or Vercel Blob.
+   */
   programDownloads?:
     | {
         label: string;
+        /**
+         * Use a direct public link to the PDF or download page.
+         */
         url: string;
         id?: string | null;
       }[]
