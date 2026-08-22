@@ -12,7 +12,8 @@
     "generate:importmap": "node ./node_modules/payload/dist/bin/index.js generate:importmap",
     "generate:types": "node ./node_modules/payload/dist/bin/index.js generate:types",
     "inspect:legacy": "node --env-file=.env ./scripts/inspect-legacy.mjs",
-    "migrate:legacy": "node --env-file=.env ./scripts/migrate-legacy.mjs"
+    "migrate:legacy": "node --env-file=.env ./scripts/migrate-legacy.mjs",
+    "seed:programme-2025": "node --env-file=.env ./scripts/seed-programme-2025.mjs"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "3.86.0",

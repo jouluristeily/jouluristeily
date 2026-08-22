@@ -26,6 +26,14 @@ export const SiteSettings: GlobalConfig = {
       defaultValue: '26.-28.11.2025',
     },
     {
+      name: 'eventYear',
+      type: 'number',
+      defaultValue: 2025,
+      admin: {
+        description: 'Used in year-specific public labels, such as the price list.',
+      },
+    },
+    {
       name: 'heroBlurb',
       type: 'textarea',
       defaultValue:

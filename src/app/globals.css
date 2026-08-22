@@ -183,12 +183,13 @@ iframe {
 }
 
 .home-date {
-  margin: -2rem 0 0;
+  margin: 1rem 0 0;
   color: var(--color-white);
   font-family: var(--font-patuaone), serif;
   font-size: 1.875rem;
   font-weight: 400;
   text-align: center;
+  text-shadow: 0.1rem 0.1rem 0 rgb(0 0 0 / 35%);
 }
 
 .home-content {
@@ -486,6 +487,46 @@ iframe {
   padding: 0 1rem;
 }
 
+.event-schedule {
+  width: min(100% - 2rem, 64rem);
+  margin: 3rem auto 0;
+}
+
+.event-schedule-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 3px solid var(--color-red);
+  padding-bottom: 1rem;
+}
+
+.event-schedule-heading h2 {
+  margin: 0;
+  color: var(--color-red);
+  font-family: var(--font-passionone), sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.event-year-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--color-black);
+  font-family: var(--font-patuaone), serif;
+}
+
+.event-year-select select {
+  min-width: 7rem;
+  border: 2px solid var(--color-black);
+  border-radius: 0;
+  background: var(--color-white);
+  padding: 0.45rem 0.6rem;
+  color: var(--color-black);
+  font: inherit;
+}
+
 .event-section {
   margin-top: 1rem;
 }
@@ -546,10 +587,27 @@ iframe {
   flex: 1 1 auto;
 }
 
+.event-card-title-row {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
 .event-card-title {
   margin: 0;
   font-size: 1.125rem;
   font-weight: 600;
+}
+
+.event-card-programme {
+  flex: 0 0 auto;
+  background: var(--color-yellow);
+  padding: 0.2rem 0.45rem;
+  color: var(--color-black);
+  font-family: var(--font-passionone), sans-serif;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .event-card-meta,
@@ -743,7 +801,7 @@ iframe {
   }
 
   .home-date {
-    margin-top: -1rem;
+    margin-top: 0.75rem;
     font-size: 1.5rem;
   }
 
@@ -767,5 +825,10 @@ iframe {
 
   .event-card-day {
     font-size: 1.5rem;
+  }
+
+  .event-schedule-heading {
+    align-items: start;
+    flex-direction: column;
   }
 }

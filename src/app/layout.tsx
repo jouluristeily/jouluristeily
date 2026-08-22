@@ -28,14 +28,18 @@ const openSans = Open_Sans({
   variable: '--font-opensans',
 })
 
-export const metadata: Metadata = {
-  title: 'Jouluristeily 2025',
-  description: 'Luonnontieteilijoiden jouluristeily 2025',
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const siteSettings = await getSiteSettings()
+
+  return {
+    title: siteSettings.siteName,
+    description: 'Luonnontieteilijöiden risteilytapahtuma',
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
+      apple: '/favicon.ico',
+    },
+  }
 }
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -49,6 +53,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body>
         <ServiceWorkerRegister />
         <SiteShell
+          eventYear={siteSettings.eventYear}
           footerText={siteSettings.footerText}
           harassmentFormUrl={siteSettings.harassmentFormUrl}
           siteName={siteSettings.siteName}

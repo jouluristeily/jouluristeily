@@ -14,7 +14,7 @@ export default async function HomePage() {
       <section className="home-hero">
         <div className="home-hero-inner">
           <h1 className="home-title">{siteSettings.siteName}</h1>
-          <h3 className="home-date">{siteSettings.heroDateLabel}</h3>
+          {siteSettings.heroDateLabel ? <p className="home-date">{siteSettings.heroDateLabel}</p> : null}
         </div>
       </section>
 

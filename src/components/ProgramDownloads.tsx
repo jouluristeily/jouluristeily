@@ -5,11 +5,19 @@ const programmeDescription = (label: string) =>
     ? 'Tupliksen aikataulut ja ohjelmatiedot yhdessä käsiohjelmassa.'
     : 'Jouluristeilyn aikataulut, ohjelmanumerot ja käytännön tiedot yhdessä käsiohjelmassa.'
 
-export function ProgramDownloads({ downloads }: { downloads: LinkItem[] }) {
+export function ProgramDownloads({
+  dateLabel,
+  downloads,
+  siteName,
+}: {
+  dateLabel?: string | null
+  downloads: LinkItem[]
+  siteName: string
+}) {
   return (
     <section className="programme-downloads" aria-labelledby="programme-heading">
       <header className="programme-heading">
-        <p className="programme-eyebrow">Jouluristeily 2025</p>
+        <p className="programme-eyebrow">{siteName}{dateLabel ? ` | ${dateLabel}` : ''}</p>
         <h1 id="programme-heading">Ohjelma</h1>
         <p>Valitse oma käsiohjelmasi. PDF toimii myös ilman jatkuvaa verkkoyhteyttä, kun avaat sen kerran laitteellasi.</p>
       </header>

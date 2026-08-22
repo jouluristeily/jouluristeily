@@ -9,6 +9,7 @@ import type { LinkItem } from '@/lib/site-data'
 
 type SiteShellProps = {
   children: ReactNode
+  eventYear?: number | null
   footerText?: string | null
   harassmentFormUrl?: string | null
   siteName: string
@@ -17,6 +18,7 @@ type SiteShellProps = {
 
 export function SiteShell({
   children,
+  eventYear,
   footerText,
   harassmentFormUrl,
   siteName,
@@ -30,7 +32,7 @@ export function SiteShell({
 
   return (
     <div className="site-shell">
-      <SiteHeader harassmentFormUrl={harassmentFormUrl} siteName={siteName} />
+      <SiteHeader eventYear={eventYear} harassmentFormUrl={harassmentFormUrl} siteName={siteName} />
       <main className="site-main">{children}</main>
       <SiteFooter
         footerText={footerText}

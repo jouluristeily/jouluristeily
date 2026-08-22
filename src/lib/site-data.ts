@@ -16,6 +16,7 @@ export type LinkItem = {
 export type SiteSettingsData = {
   siteName: string
   heroDateLabel?: string | null
+  eventYear?: number | null
   heroBlurb?: string | null
   galleryUrl?: string | null
   harassmentFormUrl?: string | null
@@ -44,6 +45,7 @@ export type EventData = {
   startAt: string
   endAt: string
   location?: string | null
+  programme?: 'jouluristeily' | 'tuplis' | null
 }
 
 export type PriceData = {
@@ -57,6 +59,7 @@ export type PriceData = {
 const FALLBACK_SITE_SETTINGS: SiteSettingsData = {
   siteName: 'Jouluristeily 2025',
   heroDateLabel: '26.-28.11.2025',
+  eventYear: 2025,
   heroBlurb:
     'Tämä monorepo-versio käyttää Payloadin local APIa ja Nextin välimuistia, jotta sivu pysyy nopeana myös huonolla yhteydellä.',
   galleryUrl: 'https://jouluristeily.kuvat.fi/kuvat/',
@@ -165,9 +168,11 @@ const getCachedEvents = unstable_cache(
 
     return result.docs as unknown as EventData[]
   },
-  ['events'],
+  // The programme seed ran after the first empty response was cached. Version this
+  // key so existing deployments immediately read the newly imported events.
+  ['events-v2'],
   {
-    revalidate: 60 * 60 * 12,
+    revalidate: 60 * 5,
     tags: ['events'],
   },
 )

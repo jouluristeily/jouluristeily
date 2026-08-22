@@ -197,6 +197,7 @@ export interface Event {
   startAt: string;
   endAt: string;
   location?: string | null;
+  programme?: ('jouluristeily' | 'tuplis') | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -359,6 +360,7 @@ export interface EventsSelect<T extends boolean = true> {
   startAt?: T;
   endAt?: T;
   location?: T;
+  programme?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -446,6 +448,10 @@ export interface SiteSetting {
   id: string;
   siteName: string;
   heroDateLabel?: string | null;
+  /**
+   * Used in year-specific public labels, such as the price list.
+   */
+  eventYear?: number | null;
   heroBlurb?: string | null;
   featuredLinks?:
     | {
@@ -481,6 +487,7 @@ export interface SiteSetting {
 export interface SiteSettingsSelect<T extends boolean = true> {
   siteName?: T;
   heroDateLabel?: T;
+  eventYear?: T;
   heroBlurb?: T;
   featuredLinks?:
     | T

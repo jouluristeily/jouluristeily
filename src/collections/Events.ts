@@ -47,5 +47,23 @@ export const Events: CollectionConfig = {
       name: 'location',
       type: 'text',
     },
+    {
+      name: 'programme',
+      type: 'select',
+      defaultValue: 'jouluristeily',
+      options: [
+        {
+          label: 'Jouluristeily',
+          value: 'jouluristeily',
+        },
+        {
+          label: 'Tuplis',
+          value: 'tuplis',
+        },
+      ],
+      admin: {
+        position: 'sidebar',
+      },
+    },
   ],
 }

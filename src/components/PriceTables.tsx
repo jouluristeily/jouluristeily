@@ -11,10 +11,13 @@ const sections: Array<{
   { key: 'tp_ruokailu', title: 'Tuplis Ruokailut' },
 ]
 
-export function PriceTables({ items }: { items: PriceData[] }) {
+export function PriceTables({ eventYear, items }: { eventYear?: number | null; items: PriceData[] }) {
   if (!items.length) {
     return null
   }
+
+  const sectionTitles = new Map(sections.map((section) => [section.key, section.title]))
+  const year = eventYear || new Date().getFullYear()
 
   return (
     <div className="prices-groups">
@@ -29,7 +32,11 @@ export function PriceTables({ items }: { items: PriceData[] }) {
 
         return (
           <section key={section.key} className="price-sub-list">
-            <h2 className="price-sub-list-title">{section.title}</h2>
+            <h2 className="price-sub-list-title">
+              {section.key === 'jr_hytti'
+                ? `Jouluristeilyn hyttihinnasto ${year}`
+                : sectionTitles.get(section.key)}
+            </h2>
             <div className="price-list-rows">
               {rows.map((item) => (
                 <article key={`${item.type}-${item.title}`} className="price-item-row">

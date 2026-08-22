@@ -5,12 +5,13 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 type SiteHeaderProps = {
+  eventYear?: number | null
   harassmentFormUrl?: string | null
   siteName: string
 }
 
-const internalItems = [
-  { href: '/', label: 'JR 2025' },
+const internalItems = (eventYear?: number | null) => [
+  { href: '/', label: eventYear ? `JR ${eventYear}` : 'Jouluristeily' },
   { href: '/tuplis', label: 'Tuplis' },
   { href: '/terms', label: 'Matkaehdot' },
   { href: '/guide', label: 'Ohjeet' },
@@ -21,7 +22,7 @@ const internalItems = [
   { href: '/afterlecture', label: 'After Lecture' },
 ]
 
-export function SiteHeader({ harassmentFormUrl, siteName }: SiteHeaderProps) {
+export function SiteHeader({ eventYear, harassmentFormUrl, siteName }: SiteHeaderProps) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
@@ -90,7 +91,7 @@ export function SiteHeader({ harassmentFormUrl, siteName }: SiteHeaderProps) {
 
           <div className="site-nav-menu" data-open={open}>
             <ul id="site-nav-list" className="site-nav-list" data-open={open}>
-              {internalItems.map((item) => (
+              {internalItems(eventYear).map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="site-nav-link" onClick={() => setOpen(false)}>
                     {item.label}
