@@ -13,6 +13,9 @@ type BaseNode = {
     url?: string
   }
   url?: string
+  $?: {
+    color?: string
+  }
 }
 
 const hasFlag = (format: number | string | undefined, flag: number) =>
@@ -44,6 +47,7 @@ const renderTextNode = (node: BaseNode, key: number): ReactNode => {
     hasFlag(node.format, 2) ? 'rt-italic' : '',
     hasFlag(node.format, 4) ? 'rt-strike' : '',
     hasFlag(node.format, 8) ? 'rt-underline' : '',
+    node.$?.color ? `rt-color-${node.$.color}` : '',
   ]
     .filter(Boolean)
     .join(' ')

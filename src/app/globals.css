@@ -277,6 +277,22 @@ iframe {
   text-decoration: line-through;
 }
 
+.rt-color-brand-red {
+  color: var(--color-red);
+}
+
+.rt-color-brand-gold {
+  color: #8a6500;
+}
+
+.rt-color-brand-blue {
+  color: #1d4ed8;
+}
+
+.rt-color-brand-black {
+  color: var(--color-black);
+}
+
 .rt-align-center {
   text-align: center;
 }
