@@ -18,9 +18,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {homeBlock?.content ? (
+      {siteSettings.heroBlurb || homeBlock?.content ? (
         <div className="home-content">
-          <RichTextRenderer content={homeBlock.content} />
+          {siteSettings.heroBlurb ? <p className="home-blurb">{siteSettings.heroBlurb}</p> : null}
+          <RichTextRenderer content={homeBlock?.content} />
         </div>
       ) : null}
     </div>

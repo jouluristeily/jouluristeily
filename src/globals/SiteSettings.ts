@@ -36,6 +36,10 @@ export const SiteSettings: GlobalConfig = {
     {
       name: 'heroBlurb',
       type: 'textarea',
+      label: 'Homepage intro (plain text)',
+      admin: {
+        description: 'A short plain-text introduction shown below the homepage hero. Use the Homepage Intro content block for formatted text.',
+      },
       defaultValue:
         'Kevyt, nopeasti latautuva tapahtumasivu, jonka sisältöä voi päivittää ilman erillistä frontti- ja backendiä.',
     },
