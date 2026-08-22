@@ -24,7 +24,8 @@ export default buildConfig({
   collections: [Pages, ContentBlocks, Events, PriceList, Users],
   globals: [SiteSettings],
   db: mongooseAdapter({
-    url: process.env.DATABASE_URL || '',
+    // MONGODB_URI keeps local setup compatible with the legacy Payload project.
+    url: process.env.DATABASE_URL || process.env.MONGODB_URI || '',
     connectOptions: {
       serverSelectionTimeoutMS: 5000,
     },
