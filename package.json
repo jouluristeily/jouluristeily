@@ -13,7 +13,7 @@
     "generate:types": "node ./node_modules/payload/dist/bin/index.js generate:types"
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "3.86.0",
+    "@payloadcms/db-mongodb": "3.88.0",
     "@payloadcms/next": "3.86.0",
     "@payloadcms/richtext-lexical": "3.86.0",
     "cross-env": "^7.0.3",
