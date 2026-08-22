@@ -126,7 +126,7 @@ if (!sourceUrl || !destinationUrl) {
         continue
       }
 
-      await upsert(destination.collection('price-list'), {
+      await upsert(destination.collection('price-lists'), {
         title: price.title,
         type: price.type,
         price: price.price,

@@ -1,6 +1,6 @@
 import { getSiteSettings } from '@/lib/site-data'
 
-export const revalidate = 60 * 60
+export const revalidate = 3600
 
 export default async function GalleryPage() {
   const siteSettings = await getSiteSettings()

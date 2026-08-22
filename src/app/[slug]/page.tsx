@@ -4,7 +4,12 @@ import { RichTextRenderer } from '@/components/RichTextRenderer'
 import { getPageBySlug, getPages } from '@/lib/site-data'
 
 export const dynamicParams = true
-export const revalidate = 60 * 60
+export const revalidate = 3600
+
+const pageBrandAssets: Record<string, string> = {
+  loimu: '/loimu.png',
+  afterlecture: '/AL_logo.svg',
+}
 
 export async function generateStaticParams() {
   const pages = await getPages()
@@ -22,8 +27,11 @@ export default async function ContentPage(props: { params: Promise<{ slug: strin
     notFound()
   }
 
+  const brandAsset = pageBrandAssets[slug]
+
   return (
     <div className="text-page-shell">
+      {brandAsset ? <img src={brandAsset} className="page-brand-asset" alt={page.title} /> : null}
       <RichTextRenderer content={page.content} />
     </div>
   )

@@ -83,7 +83,8 @@ const renderNode = (node: BaseNode, key: number): ReactNode => {
     }
     case 'listitem':
       return <li key={key}>{renderNodes(node.children)}</li>
-    case 'link': {
+    case 'link':
+    case 'autolink': {
       const href = node.fields?.url || node.url || '#'
       return (
         <a

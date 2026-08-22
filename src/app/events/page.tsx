@@ -1,28 +1,18 @@
 import { EventSchedule } from '@/components/EventSchedule'
+import { ProgramDownloads } from '@/components/ProgramDownloads'
 import { getEvents, getSiteSettings } from '@/lib/site-data'
 
-export const revalidate = 60 * 60
+export const revalidate = 3600
 
 export default async function EventsPage() {
   const [siteSettings, events] = await Promise.all([getSiteSettings(), getEvents()])
 
-  if (siteSettings.programDownloads?.length) {
-    return (
-      <div className="events-download-shell">
-        {siteSettings.programDownloads.map((link) => (
-          <div key={`${link.label}-${link.url}`} className="events-download-item">
-            <a href={link.url} className="btn-primary" target="_blank" rel="noreferrer">
-              {link.label}
-            </a>
-          </div>
-        ))}
-      </div>
-    )
-  }
-
   return (
-    <div>
-      <EventSchedule events={events} />
+    <div className="programme-page">
+      {siteSettings.programDownloads?.length ? (
+        <ProgramDownloads downloads={siteSettings.programDownloads} />
+      ) : null}
+      {events.length ? <EventSchedule events={events} /> : null}
     </div>
   )
 }

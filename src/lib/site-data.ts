@@ -66,7 +66,10 @@ const FALLBACK_SITE_SETTINGS: SiteSettingsData = {
     { label: 'Hinnasto', url: '/prices' },
     { label: 'Ohjelma', url: '/events' },
   ],
-  programDownloads: [],
+  programDownloads: [
+    { label: 'Tuplis25 Kasiohjelma', url: '/TUPLIS25_Kasiohjelma.pdf' },
+    { label: 'JR25 Kasiohjelma', url: '/JR25_kasiohjelma.pdf' },
+  ],
   socialLinks: [
     { label: 'Facebook', url: 'https://www.facebook.com/jouluristeily' },
     { label: 'Instagram', url: 'https://www.instagram.com/jouluristeily/' },
@@ -181,7 +184,8 @@ const getCachedPriceList = unstable_cache(
 
     return result.docs as unknown as PriceData[]
   },
-  ['price-list'],
+  // The previous database migration cached an empty price list under this key.
+  ['price-list-v3'],
   {
     revalidate: 60 * 60 * 24,
     tags: ['price-list'],

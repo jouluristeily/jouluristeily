@@ -292,6 +292,13 @@ iframe {
   margin: 1rem 0.5rem 0;
 }
 
+.page-brand-asset {
+  width: min(100%, 22rem);
+  max-height: 11rem;
+  margin: 0 auto 2rem;
+  object-fit: contain;
+}
+
 .prices-shell {
   display: flex;
   max-width: 1024px;
@@ -361,17 +368,99 @@ iframe {
   margin: 0;
 }
 
-.events-download-shell {
-  display: flex;
-  min-height: 24rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.programme-page {
+  padding-top: 2rem;
 }
 
-.events-download-item {
-  padding: 1.5rem;
+.programme-downloads {
+  width: min(100% - 2rem, 68rem);
+  margin: 0 auto;
+}
+
+.programme-heading {
+  max-width: 43rem;
+  margin: 0 auto 2rem;
   text-align: center;
+}
+
+.programme-eyebrow {
+  margin: 0 0 0.25rem;
+  color: var(--color-red);
+  font-family: var(--font-passionone), sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.programme-heading h1 {
+  margin: 0;
+  color: var(--color-red);
+  font-family: var(--font-passionone), sans-serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+.programme-heading > p:last-child {
+  margin: 1rem 0 0;
+  line-height: 1.7;
+}
+
+.programme-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.programme-card {
+  display: flex;
+  min-height: 18rem;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 3px solid var(--color-red);
+  background: var(--color-white);
+  box-shadow: 0.55rem 0.55rem 0 var(--color-yellow);
+  padding: 1.5rem;
+}
+
+.programme-card-file {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.5rem;
+  min-height: 2rem;
+  background: var(--color-red);
+  color: var(--color-white);
+  font-family: var(--font-passionone), sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+}
+
+.programme-card h2 {
+  margin: 1.25rem 0 0;
+  color: var(--color-black);
+  font-family: var(--font-patuaone), serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+}
+
+.programme-card p {
+  margin: 0.75rem 0 1.5rem;
+  line-height: 1.7;
+}
+
+.programme-card-link {
+  margin-top: auto;
+  background: var(--color-black);
+  padding: 0.7rem 1rem;
+  color: var(--color-white);
+  font-family: var(--font-passionone), sans-serif;
+  font-size: 1.25rem;
+}
+
+.programme-card-link:hover,
+.programme-card-link:focus-visible {
+  background: var(--color-red);
 }
 
 .btn-primary {
@@ -643,6 +732,10 @@ iframe {
   .home-title {
     font-size: clamp(3.25rem, 18vw, 5rem);
     text-shadow: 0.065em 0.065em 0 var(--color-red);
+  }
+
+  .programme-card-grid {
+    grid-template-columns: 1fr;
   }
 
   .home-content {

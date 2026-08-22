@@ -63,11 +63,11 @@ export const SiteSettings: GlobalConfig = {
       defaultValue: [
         {
           label: 'Tuplis25 Käsiohjelma',
-          url: 'https://drive.google.com/uc?export=download&id=1K85tZWmyQxBwARU2Ghl756czCSwKUAJV',
+          url: '/TUPLIS25_Kasiohjelma.pdf',
         },
         {
           label: 'JR25 Käsiohjelma',
-          url: 'https://drive.google.com/uc?export=download&id=1AvxUFck0Z3dv-ZBx4slCczUJZy1HW2o9',
+          url: '/JR25_kasiohjelma.pdf',
         },
       ],
       fields: [

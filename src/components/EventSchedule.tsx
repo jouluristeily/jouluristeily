@@ -28,13 +28,14 @@ export function EventSchedule({ events }: { events: EventData[] }) {
     return start <= now && end >= now
   })
   const upcomingEvents = events.filter((event) => new Date(event.startAt).getTime() > now)
-  const pastEvents = events.filter((event) => new Date(event.endAt).getTime() < now)
-
   const sections = [
     { title: 'Now', events: nowEvents },
     { title: 'Upcoming', events: upcomingEvents },
-    { title: 'Past', events: pastEvents },
   ].filter((section) => section.events.length > 0)
+
+  if (!sections.length) {
+    return null
+  }
 
   return (
     <div className="event-sections">

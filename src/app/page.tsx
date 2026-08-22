@@ -1,7 +1,7 @@
 import { RichTextRenderer } from '@/components/RichTextRenderer'
 import { getContentBlockByKey, getSiteSettings } from '@/lib/site-data'
 
-export const revalidate = 60 * 60
+export const revalidate = 3600
 
 export default async function HomePage() {
   const [siteSettings, homeBlock] = await Promise.all([
