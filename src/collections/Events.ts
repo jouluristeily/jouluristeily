@@ -16,6 +16,9 @@ export const Events: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'startAt', 'location'],
     group: 'Programme',
+    components: {
+      beforeList: ['/src/components/admin/EventListTools#EventListTools'],
+    },
   },
   defaultSort: 'startAt',
   hooks: {

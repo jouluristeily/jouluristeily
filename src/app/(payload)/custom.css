@@ -1,3 +1,100 @@
+/* Keep the public site's global body styles from bleeding into Payload's theme. */
+html[data-theme] body {
+  background: var(--theme-bg);
+  color: var(--theme-text);
+}
+
 html[data-theme='light'] {
-  --theme-text: #1f2937;
+  --theme-bg: #fffdf8;
+  --theme-input-bg: #ffffff;
+  --theme-text: #202124;
+  --theme-elevation-0: #ffffff;
+  --theme-elevation-50: #fff8eb;
+  --theme-elevation-100: #f4ead7;
+  --theme-elevation-150: #e4d8c4;
+  --theme-elevation-800: #2b2621;
+  --theme-elevation-1000: #171412;
+}
+
+html[data-theme='light'] input,
+html[data-theme='light'] textarea,
+html[data-theme='light'] select {
+  background: #ffffff;
+  color: #202124;
+}
+
+.event-admin-tools {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) minmax(9rem, auto) auto;
+  align-items: end;
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--theme-elevation-150);
+  border-left: 5px solid #c1121f;
+  background: var(--theme-elevation-50);
+  padding: 1rem 1.25rem;
+}
+
+.event-admin-tools h2,
+.event-admin-tools p {
+  margin: 0;
+}
+
+.event-admin-tools h2 {
+  font-size: 1.1rem;
+}
+
+.event-admin-tools__eyebrow {
+  margin-bottom: 0.2rem !important;
+  color: #c1121f;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-admin-tools label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.event-admin-tools select,
+.event-admin-tools button {
+  min-height: 2.5rem;
+  border: 1px solid var(--theme-elevation-300);
+  border-radius: 3px;
+  padding: 0.45rem 0.65rem;
+  font: inherit;
+}
+
+.event-admin-tools button {
+  border-color: #c1121f;
+  background: #c1121f;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.event-admin-tools button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.event-admin-tools__help,
+.event-admin-tools__message {
+  grid-column: 1 / -1;
+  color: var(--theme-elevation-600);
+  font-size: 0.9rem;
+}
+
+.event-admin-tools__message {
+  color: #8c111a;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .event-admin-tools {
+    grid-template-columns: 1fr;
+  }
 }
