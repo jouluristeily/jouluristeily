@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 type SiteHeaderProps = {
   harassmentFormUrl?: string | null
@@ -22,6 +23,33 @@ const internalItems = [
 
 export function SiteHeader({ harassmentFormUrl, siteName }: SiteHeaderProps) {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false)
+      }
+    }
+
+    const closeOnDesktop = () => {
+      if (window.matchMedia('(min-width: 768px)').matches) {
+        setOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', closeOnEscape)
+    window.addEventListener('resize', closeOnDesktop)
+
+    return () => {
+      window.removeEventListener('keydown', closeOnEscape)
+      window.removeEventListener('resize', closeOnDesktop)
+    }
+  }, [])
 
   return (
     <header className="site-header">
@@ -60,7 +88,7 @@ export function SiteHeader({ harassmentFormUrl, siteName }: SiteHeaderProps) {
             </svg>
           </button>
 
-          <div className="site-nav-menu">
+          <div className="site-nav-menu" data-open={open}>
             <ul id="site-nav-list" className="site-nav-list" data-open={open}>
               {internalItems.map((item) => (
                 <li key={item.href}>

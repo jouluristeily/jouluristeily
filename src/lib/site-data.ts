@@ -73,6 +73,30 @@ const FALLBACK_SITE_SETTINGS: SiteSettingsData = {
   ],
 }
 
+const textContent = (text: string): RichTextContent => ({
+  root: {
+    children: [
+      {
+        type: 'paragraph',
+        children: [{ type: 'text', text }],
+      },
+    ],
+  },
+})
+
+// Keep inherited navigation usable until the old page content is migrated to Payload.
+const FALLBACK_PAGES: PageData[] = [
+  { title: 'Tuplis', slug: 'tuplis', content: textContent('Tuplis-tiedot julkaistaan täällä.') },
+  { title: 'Matkaehdot', slug: 'terms', content: textContent('Matkaehdot julkaistaan täällä.') },
+  { title: 'Ohjeet', slug: 'guide', content: textContent('Risteilyohjeet julkaistaan täällä.') },
+  { title: 'Loimu', slug: 'loimu', content: textContent('Loimun tiedot julkaistaan täällä.') },
+  {
+    title: 'After Lecture',
+    slug: 'afterlecture',
+    content: textContent('After Lecturen tiedot julkaistaan täällä.'),
+  },
+]
+
 const getCachedSiteSettings = unstable_cache(
   async () => {
     const payload = await getPayloadClient()
@@ -175,9 +199,10 @@ export const getSiteSettings = async () => {
 
 export const getPages = async () => {
   try {
-    return await getCachedPages()
+    const pages = await getCachedPages()
+    return pages.length ? pages : FALLBACK_PAGES
   } catch {
-    return []
+    return FALLBACK_PAGES
   }
 }
 

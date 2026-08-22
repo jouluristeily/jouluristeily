@@ -13,7 +13,7 @@ export default async function HomePage() {
     <div>
       <section className="home-hero">
         <div className="home-hero-inner">
-          <img src="/logo.svg" alt={siteSettings.siteName} className="home-logo" />
+          <h1 className="home-title">{siteSettings.siteName}</h1>
           <h3 className="home-date">{siteSettings.heroDateLabel}</h3>
         </div>
       </section>

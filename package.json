@@ -4,21 +4,21 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
-    "build:compile": "cross-env NODE_OPTIONS=--no-deprecation next build --experimental-build-mode compile",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types"
+    "dev": "node ./node_modules/next/dist/bin/next dev",
+    "build": "node ./node_modules/next/dist/bin/next build",
+    "build:compile": "node ./node_modules/next/dist/bin/next build --experimental-build-mode compile",
+    "start": "node ./node_modules/next/dist/bin/next start",
+    "payload": "node ./node_modules/payload/dist/bin/index.js",
+    "generate:importmap": "node ./node_modules/payload/dist/bin/index.js generate:importmap",
+    "generate:types": "node ./node_modules/payload/dist/bin/index.js generate:types"
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "^3.86.0",
-    "@payloadcms/next": "^3.86.0",
-    "@payloadcms/richtext-lexical": "^3.86.0",
+    "@payloadcms/db-mongodb": "3.86.0",
+    "@payloadcms/next": "3.86.0",
+    "@payloadcms/richtext-lexical": "3.86.0",
     "cross-env": "^7.0.3",
     "next": "15.4.11",
-    "payload": "^3.86.0",
+    "payload": "3.86.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
