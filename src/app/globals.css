@@ -91,6 +91,30 @@ iframe {
   margin-right: 0.75rem;
 }
 
+.site-nav-priority {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+}
+
+.site-nav-priority-link {
+  border: 2px solid var(--color-red);
+  border-radius: 999px;
+  padding: 0.3rem 0.55rem;
+  color: var(--color-red);
+  font-family: var(--font-passionone), sans-serif;
+  font-size: 1.1rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.site-nav-priority-link:hover,
+.site-nav-priority-link:focus-visible {
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
 .site-nav-toggle {
   display: inline-flex;
   height: 2.5rem;
@@ -168,18 +192,14 @@ iframe {
   padding: 1rem;
 }
 
-.home-title {
-  max-width: min(92vw, 52rem);
+.home-logo {
+  width: min(92vw, 48rem);
   margin: 0;
-  color: var(--color-white);
-  font-family: var(--font-passionone), sans-serif;
-  font-size: clamp(4rem, 15vw, 10rem);
-  font-weight: 700;
-  letter-spacing: 0.015em;
-  line-height: 0.82;
-  text-align: center;
-  text-shadow: 0.08em 0.08em 0 var(--color-red);
-  text-transform: uppercase;
+}
+
+.home-logo img {
+  width: 100%;
+  filter: drop-shadow(0.55rem 0.55rem 0 rgb(0 0 0 / 35%));
 }
 
 .home-date {
@@ -809,13 +829,18 @@ iframe {
   margin: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
+  .site-nav-inner {
+    flex-wrap: nowrap;
+  }
+
   .site-nav-menu {
     display: block;
     width: auto;
   }
 
-  .site-nav-toggle {
+  .site-nav-toggle,
+  .site-nav-priority {
     display: none;
   }
 
@@ -824,9 +849,9 @@ iframe {
     margin: 0;
     padding: 0;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    gap: clamp(0.8rem, 2vw, 2rem);
+    gap: clamp(0.75rem, 1.2vw, 1.3rem);
     border: 0;
     background: var(--color-white);
   }
@@ -840,7 +865,9 @@ iframe {
     background: transparent;
     color: var(--color-darkred);
   }
+}
 
+@media (min-width: 768px) {
   .footer-social-row {
     flex-direction: row;
   }
@@ -857,6 +884,13 @@ iframe {
 @media (min-width: 1024px) {
   .text-page-shell {
     margin-inline: 2.5rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .site-nav-menu {
+    order: 3;
+    width: 100%;
   }
 }
 
@@ -878,10 +912,6 @@ iframe {
     min-height: 4.5rem;
   }
 
-  .site-nav-menu {
-    order: 3;
-  }
-
   .site-nav-list {
     margin-top: 0.5rem;
   }
@@ -894,9 +924,8 @@ iframe {
     height: 430px;
   }
 
-  .home-title {
-    font-size: clamp(3.25rem, 18vw, 5rem);
-    text-shadow: 0.065em 0.065em 0 var(--color-red);
+  .home-logo {
+    width: min(94vw, 30rem);
   }
 
   .programme-card-grid {

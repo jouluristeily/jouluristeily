@@ -22,6 +22,11 @@ const internalItems = (eventYear?: number | null) => [
   { href: '/afterlecture', label: 'After Lecture' },
 ]
 
+const priorityItems = [
+  { href: '/events', label: 'Ohjelma' },
+  { href: '/prices', label: 'Hinnasto' },
+]
+
 export function SiteHeader({ eventYear, harassmentFormUrl, siteName }: SiteHeaderProps) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
@@ -38,7 +43,7 @@ export function SiteHeader({ eventYear, harassmentFormUrl, siteName }: SiteHeade
     }
 
     const closeOnDesktop = () => {
-      if (window.matchMedia('(min-width: 768px)').matches) {
+      if (window.matchMedia('(min-width: 1280px)').matches) {
         setOpen(false)
       }
     }
@@ -64,6 +69,19 @@ export function SiteHeader({ eventYear, harassmentFormUrl, siteName }: SiteHeade
           >
             <img src="/logo.svg" className="site-home-icon" alt={`${siteName} logo`} />
           </Link>
+
+          <div className="site-nav-priority" role="group" aria-label="Quick links">
+            {priorityItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="site-nav-priority-link"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
 
           <button
             type="button"

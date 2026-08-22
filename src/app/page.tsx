@@ -15,7 +15,9 @@ export default async function HomePage() {
     <div>
       <section className="home-hero">
         <div className="home-hero-inner">
-          <h1 className="home-title">{siteSettings.siteName}</h1>
+          <h1 className="home-logo">
+            <img src="/logo.svg" alt={siteSettings.siteName} />
+          </h1>
           {siteSettings.heroDateLabel ? (
             <p className="home-date">{siteSettings.heroDateLabel}</p>
           ) : null}
