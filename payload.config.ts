@@ -13,6 +13,9 @@ import { SiteSettings } from './src/globals/SiteSettings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const serverURL = new URL(
+  process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+).origin
 
 export default buildConfig({
   admin: {
@@ -34,7 +37,10 @@ export default buildConfig({
     disablePlaygroundInProduction: true,
   },
   secret: process.env.PAYLOAD_SECRET || '',
-  serverURL: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  // Payload adds serverURL to its CSRF allowlist and compares it with the
+  // browser's Origin header. URL.origin removes paths and trailing slashes so
+  // authenticated POST requests are not rejected because of formatting.
+  serverURL,
   typescript: {
     outputFile: path.resolve(dirname, './src/payload-types.ts'),
   },
