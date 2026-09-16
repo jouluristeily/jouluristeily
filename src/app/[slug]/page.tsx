@@ -7,7 +7,7 @@ export const dynamicParams = true
 export const revalidate = 3600
 
 const pageBrandAssets: Record<string, string> = {
-  loimu: '/loimu.png',
+  loimu: '/loimu.svg',
   afterlecture: '/AL_logo.svg',
 }
 
