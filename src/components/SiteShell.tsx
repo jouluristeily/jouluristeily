@@ -6,6 +6,7 @@ import type { ReactNode } from 'react'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 import type { LinkItem } from '@/lib/site-data'
+import type { TicketSalesData } from '@/lib/ticket-sales'
 
 type SiteShellProps = {
   children: ReactNode
@@ -14,6 +15,7 @@ type SiteShellProps = {
   harassmentFormUrl?: string | null
   siteName: string
   socialLinks?: LinkItem[] | null
+  ticketSales?: TicketSalesData | null
 }
 
 export function SiteShell({
@@ -23,6 +25,7 @@ export function SiteShell({
   harassmentFormUrl,
   siteName,
   socialLinks,
+  ticketSales,
 }: SiteShellProps) {
   const pathname = usePathname()
 
@@ -32,12 +35,18 @@ export function SiteShell({
 
   return (
     <div className="site-shell">
-      <SiteHeader eventYear={eventYear} harassmentFormUrl={harassmentFormUrl} siteName={siteName} />
+      <SiteHeader
+        eventYear={eventYear}
+        harassmentFormUrl={harassmentFormUrl}
+        siteName={siteName}
+        ticketSales={ticketSales}
+      />
       <main className="site-main">{children}</main>
       <SiteFooter
         footerText={footerText}
         harassmentFormUrl={harassmentFormUrl}
         socialLinks={socialLinks}
+        ticketSales={ticketSales}
       />
     </div>
   )

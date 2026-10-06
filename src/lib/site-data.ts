@@ -1,6 +1,7 @@
 import { unstable_cache } from 'next/cache'
 
 import { getPayloadClient } from '@/lib/payload'
+import type { TicketSalesData } from '@/lib/ticket-sales'
 
 export type RichTextContent = {
   root?: {
@@ -24,6 +25,7 @@ export type SiteSettingsData = {
   featuredLinks?: LinkItem[] | null
   programDownloads?: LinkItem[] | null
   socialLinks?: LinkItem[] | null
+  ticketSales?: TicketSalesData | null
 }
 
 export type PageData = {

@@ -1,16 +1,20 @@
 import type { LinkItem } from '@/lib/site-data'
+import type { TicketSalesData } from '@/lib/ticket-sales'
+import { TicketSalesLink } from '@/components/TicketSales'
 
 type SiteFooterProps = {
   footerText?: string | null
   harassmentFormUrl?: string | null
   socialLinks?: LinkItem[] | null
+  ticketSales?: TicketSalesData | null
 }
 
-export function SiteFooter({ footerText, harassmentFormUrl, socialLinks }: SiteFooterProps) {
+export function SiteFooter({ footerText, harassmentFormUrl, socialLinks, ticketSales }: SiteFooterProps) {
   return (
     <footer className="site-footer">
       <div className="footer-frame">
         <div className="footer-inner">
+          <TicketSalesLink sales={ticketSales} placement="footer" variant="link" />
           {harassmentFormUrl ? (
             <a
               href={harassmentFormUrl}

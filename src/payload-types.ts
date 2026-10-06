@@ -456,6 +456,27 @@ export interface SiteSetting {
    * A short plain-text introduction shown below the homepage hero. Use the Homepage Intro content block for formatted text.
    */
   heroBlurb?: string | null;
+  /**
+   * Manage ticket links across the website from here. Add your Kide.app event URL, choose placements, then enable ticket sales and save.
+   */
+  ticketSales?: {
+    /**
+     * Turn off to hide all managed ticket links without deleting the URL.
+     */
+    enabled?: boolean | null;
+    /**
+     * Paste the full public HTTPS link to your ticket sales page on Kide.app. Required when ticket sales links are enabled.
+     */
+    url?: string | null;
+    /**
+     * Default: Osta liput. Navigation uses the short label Liput to fit smaller screens. Kide.app is shown alongside the button text.
+     */
+    buttonLabel?: string | null;
+    /**
+     * Select where ticket links appear. Clear all selections to hide them everywhere.
+     */
+    placements?: ('navigation' | 'homepage' | 'prices' | 'events' | 'footer')[] | null;
+  };
   featuredLinks?:
     | {
         label: string;
@@ -498,6 +519,14 @@ export interface SiteSettingsSelect<T extends boolean = true> {
   heroDateLabel?: T;
   eventYear?: T;
   heroBlurb?: T;
+  ticketSales?:
+    | T
+    | {
+        enabled?: T;
+        url?: T;
+        buttonLabel?: T;
+        placements?: T;
+      };
   featuredLinks?:
     | T
     | {
