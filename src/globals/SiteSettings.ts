@@ -1,6 +1,13 @@
 import type { GlobalConfig } from 'payload'
 
 import { revalidateSiteSettings } from '../hooks/revalidate'
+import {
+  defaultTicketButtonLabel,
+  defaultTicketSalesPlacements,
+  getKideTicketUrl,
+  ticketSalesPlacements,
+  type TicketSalesData,
+} from '../lib/ticket-sales'
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
@@ -42,6 +49,64 @@ export const SiteSettings: GlobalConfig = {
       },
       defaultValue:
         'Kevyt, nopeasti latautuva tapahtumasivu, jonka sisältöä voi päivittää ilman erillistä frontti- ja backendiä.',
+    },
+    {
+      name: 'ticketSales',
+      type: 'group',
+      label: 'Ticket sales (Kide.app)',
+      admin: {
+        description: 'Manage ticket links across the website from here. Add your Kide.app event URL, choose placements, then enable ticket sales and save.',
+      },
+      fields: [
+        {
+          name: 'enabled',
+          type: 'checkbox',
+          label: 'Show ticket sales links',
+          defaultValue: false,
+          admin: {
+            description: 'Turn off to hide all managed ticket links without deleting the URL.',
+          },
+        },
+        {
+          name: 'url',
+          type: 'text',
+          hasMany: false,
+          label: 'Kide.app ticket URL',
+          admin: {
+            placeholder: 'https://kide.app/events/...',
+            description: 'Paste the full public HTTPS link to your ticket sales page on Kide.app. Required when ticket sales links are enabled.',
+          },
+          validate: (value, { siblingData }) => {
+            if (!value?.trim()) {
+              return (siblingData as TicketSalesData)?.enabled
+                ? 'Add a Kide.app URL before enabling ticket sales links.'
+                : true
+            }
+            return getKideTicketUrl(value) ? true : 'Enter a valid HTTPS URL on kide.app.'
+          },
+        },
+        {
+          name: 'buttonLabel',
+          type: 'text',
+          label: 'Button text',
+          defaultValue: defaultTicketButtonLabel,
+          maxLength: 60,
+          admin: {
+            description: 'Default: Osta liput. Navigation uses the short label Liput to fit smaller screens. Kide.app is shown alongside the button text.',
+          },
+        },
+        {
+          name: 'placements',
+          type: 'select',
+          label: 'Show links in',
+          hasMany: true,
+          defaultValue: defaultTicketSalesPlacements,
+          options: [...ticketSalesPlacements],
+          admin: {
+            description: 'Select where ticket links appear. Clear all selections to hide them everywhere.',
+          },
+        },
+      ],
     },
     {
       name: 'featuredLinks',

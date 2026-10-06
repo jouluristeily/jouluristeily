@@ -44,6 +44,7 @@ export const makeCollectionRevalidators = <
 
 export const revalidateSiteSettings: GlobalAfterChangeHook = ({ doc }) => {
   revalidateTags(['site-settings'])
-  revalidatePaths(['/', '/prices', '/events', '/gallery'])
+  // Header and footer settings also affect every CMS-managed page.
+  revalidatePath('/', 'layout')
   return doc
 }

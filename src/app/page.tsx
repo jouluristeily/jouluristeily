@@ -1,4 +1,6 @@
+import { HeroLogo } from "@/components/HeroLogo";
 import { RichTextRenderer } from "@/components/RichTextRenderer";
+import { TicketSalesLink } from "@/components/TicketSales";
 import { getContentBlockByKey, getSiteSettings } from "@/lib/site-data";
 
 export const revalidate = 3600;
@@ -15,12 +17,15 @@ export default async function HomePage() {
     <div>
       <section className="home-hero">
         <div className="home-hero-inner">
-          <h1 className="home-logo">
-            <img src="/logo.svg" alt={siteSettings.siteName} />
-          </h1>
+          <HeroLogo siteName={siteSettings.siteName} />
           {siteSettings.heroDateLabel ? (
             <p className="home-date">{siteSettings.heroDateLabel}</p>
           ) : null}
+          <TicketSalesLink
+            sales={siteSettings.ticketSales}
+            placement="homepage"
+            className="home-ticket-button"
+          />
         </div>
       </section>
 

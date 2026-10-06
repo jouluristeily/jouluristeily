@@ -8,9 +8,9 @@
     "build": "node ./node_modules/next/dist/bin/next build",
     "build:compile": "node ./node_modules/next/dist/bin/next build --experimental-build-mode compile",
     "start": "node ./node_modules/next/dist/bin/next start",
-    "payload": "node ./node_modules/payload/dist/bin/index.js",
-    "generate:importmap": "node ./node_modules/payload/dist/bin/index.js generate:importmap",
-    "generate:types": "node ./node_modules/payload/dist/bin/index.js generate:types"
+    "payload": "node ./node_modules/payload/bin.js",
+    "generate:importmap": "node ./node_modules/payload/bin.js generate:importmap",
+    "generate:types": "node ./node_modules/payload/bin.js generate:types"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "3.86.0",

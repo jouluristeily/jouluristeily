@@ -1,5 +1,6 @@
 import { PriceTables } from '@/components/PriceTables'
 import { RichTextRenderer } from '@/components/RichTextRenderer'
+import { TicketSalesCallout } from '@/components/TicketSales'
 import { getContentBlockByKey, getPriceList, getSiteSettings } from '@/lib/site-data'
 
 export const revalidate = 3600
@@ -13,6 +14,7 @@ export default async function PricesPage() {
 
   return (
     <div className="prices-shell">
+      <TicketSalesCallout sales={siteSettings.ticketSales} placement="prices" />
       {intro?.content ? (
         <div className="prices-intro">
           <RichTextRenderer content={intro.content} />

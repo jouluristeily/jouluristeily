@@ -4,10 +4,14 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
+import { TicketSalesLink } from '@/components/TicketSales'
+import { getTicketSalesLink, type TicketSalesData } from '@/lib/ticket-sales'
+
 type SiteHeaderProps = {
   eventYear?: number | null
   harassmentFormUrl?: string | null
   siteName: string
+  ticketSales?: TicketSalesData | null
 }
 
 const internalItems = (eventYear?: number | null) => [
@@ -27,9 +31,13 @@ const priorityItems = [
   { href: '/prices', label: 'Hinnasto' },
 ]
 
-export function SiteHeader({ eventYear, harassmentFormUrl, siteName }: SiteHeaderProps) {
+export function SiteHeader({ eventYear, harassmentFormUrl, siteName, ticketSales }: SiteHeaderProps) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
+  const hasTicketLink = Boolean(getTicketSalesLink(ticketSales, 'navigation'))
+  const visiblePriorityItems = hasTicketLink
+    ? priorityItems.filter((item) => item.href !== '/prices')
+    : priorityItems
 
   useEffect(() => {
     setOpen(false)
@@ -67,11 +75,11 @@ export function SiteHeader({ eventYear, harassmentFormUrl, siteName }: SiteHeade
             onClick={() => setOpen(false)}
             aria-label={`${siteName} etusivu`}
           >
-            <img src="/logo.svg" className="site-home-icon" alt={`${siteName} logo`} />
+            <img src="/site-icon.svg" className="site-home-icon" alt={`${siteName} icon`} />
           </Link>
 
           <div className="site-nav-priority" role="group" aria-label="Quick links">
-            {priorityItems.map((item) => (
+            {visiblePriorityItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -81,6 +89,12 @@ export function SiteHeader({ eventYear, harassmentFormUrl, siteName }: SiteHeade
                 {item.label}
               </Link>
             ))}
+            <TicketSalesLink
+              sales={ticketSales}
+              placement="navigation"
+              variant="compact"
+              onClick={() => setOpen(false)}
+            />
           </div>
 
           <button
@@ -128,6 +142,16 @@ export function SiteHeader({ eventYear, harassmentFormUrl, siteName }: SiteHeade
                   >
                     Häirintäilmoitus
                   </a>
+                </li>
+              ) : null}
+              {hasTicketLink ? (
+                <li>
+                  <TicketSalesLink
+                    sales={ticketSales}
+                    placement="navigation"
+                    variant="compact"
+                    onClick={() => setOpen(false)}
+                  />
                 </li>
               ) : null}
             </ul>

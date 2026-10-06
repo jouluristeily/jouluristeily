@@ -58,6 +58,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           harassmentFormUrl={siteSettings.harassmentFormUrl}
           siteName={siteSettings.siteName}
           socialLinks={siteSettings.socialLinks}
+          ticketSales={siteSettings.ticketSales}
         >
           {children}
         </SiteShell>
