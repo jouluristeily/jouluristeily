@@ -18,7 +18,7 @@
     "@payloadcms/richtext-lexical": "3.86.0",
     "cross-env": "^7.0.3",
     "next": "15.4.11",
-    "payload": "3.86.0",
+    "payload": "3.90.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
